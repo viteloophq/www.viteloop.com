@@ -11,7 +11,14 @@ const config = defineConfig({
 	resolve: { tsconfigPaths: true },
 	plugins: [
 		devtools(),
-		tanstackStart(),
+		tanstackStart({
+			// Fully static site: prerender every route to HTML at build time.
+			// crawlLinks follows nav/footer/product links to reach /products/$slug.
+			prerender: {
+				enabled: true,
+				crawlLinks: true,
+			},
+		}),
 		nitro({ rollupConfig: { external: [/^@sentry\//] } }),
 		tailwindcss(),
 		viteReact(),
