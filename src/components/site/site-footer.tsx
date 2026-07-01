@@ -9,8 +9,8 @@ export function SiteFooter() {
 	return (
 		<footer className="relative mt-24 border-t border-line bg-bg-soft/40">
 			<Container className="py-16">
-				<div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
-					<div className="max-w-xs">
+				<div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-[1.4fr_repeat(4,1fr)] lg:gap-12">
+					<div className="col-span-2 max-w-xs lg:col-span-1">
 						<Link to="/" aria-label="Viteloop home" className="inline-flex">
 							<Logo />
 						</Link>

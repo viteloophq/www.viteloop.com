@@ -100,7 +100,7 @@ function DocsPage() {
 			</section>
 
 			<Container className="grid gap-12 py-12 lg:grid-cols-[230px_1fr]">
-				<aside className="lg:sticky lg:top-24 lg:self-start">
+				<aside className="order-2 lg:order-1 lg:sticky lg:top-24 lg:self-start">
 					<nav className="flex flex-col gap-7" aria-label="Documentation">
 						{DOCS_NAV.map((group) => (
 							<div key={group.title}>
@@ -124,7 +124,7 @@ function DocsPage() {
 					</nav>
 				</aside>
 
-				<div>
+				<div className="order-1 lg:order-2">
 					<div className="grid gap-4 sm:grid-cols-3">
 						{QUICKSTART_CARDS.map((card) => {
 							const Icon = card.icon;
