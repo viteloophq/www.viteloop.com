@@ -34,7 +34,7 @@ export const SOLUTIONS: Solution[] = [
 		outcome:
 			"You own the deployment, the data path, and the keys. Nothing leaves infrastructure you control.",
 		icon: Workflow,
-		products: ["storage", "drm", "stream"],
+		products: ["drm", "stream"],
 	},
 	{
 		title: "Deploy anywhere",
@@ -43,7 +43,7 @@ export const SOLUTIONS: Solution[] = [
 		outcome:
 			"Run on bare metal, any cloud, or on-prem — including air-gapped and sovereign environments.",
 		icon: Globe2,
-		products: ["edge", "cdn", "storage"],
+		products: ["edge", "cdn"],
 	},
 	{
 		title: "Scale globally",

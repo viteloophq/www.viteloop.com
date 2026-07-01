@@ -1,12 +1,13 @@
 import {
 	Cpu,
-	Database,
 	Globe,
+	GraduationCap,
 	type LucideIcon,
 	Network,
 	PlayCircle,
 	Receipt,
 	ShieldCheck,
+	Tv,
 	Waypoints,
 } from "lucide-react";
 
@@ -153,30 +154,6 @@ export const PRODUCTS: Product[] = [
 		],
 	},
 	{
-		slug: "storage",
-		short: "Storage",
-		name: "Viteloop Storage",
-		tagline: "Object storage software for large-scale deployments.",
-		summary:
-			"S3-compatible object storage that runs on commodity hardware in your data centers. Erasure-coded durability, multi-region replication, and lifecycle policies for petabyte-scale workloads.",
-		icon: Database,
-		accent: "accent-3",
-		visual: "region",
-		features: [
-			"S3-compatible API",
-			"Erasure coding & self-healing",
-			"Multi-region replication",
-			"Lifecycle & tiering policies",
-			"Bucket-level access controls",
-			"Runs on commodity hardware",
-		],
-		highlights: [
-			{ label: "Durability", value: "11 nines" },
-			{ label: "Scale", value: "Exabyte" },
-			{ label: "API", value: "S3" },
-		],
-	},
-	{
 		slug: "edge",
 		short: "Edge",
 		name: "Viteloop Edge",
@@ -222,6 +199,54 @@ export const PRODUCTS: Product[] = [
 			{ label: "Throughput", value: "1M+ rps" },
 			{ label: "p99 overhead", value: "<1ms" },
 			{ label: "Config", value: "As code" },
+		],
+	},
+	{
+		slug: "ott",
+		short: "OTT",
+		name: "Viteloop OTT",
+		tagline: "Turnkey OTT streaming platform.",
+		summary:
+			"Launch a branded OTT service end to end — VOD and live channels, multi-DRM, monetization, and apps for web, mobile, and TV — powered by Viteloop's streaming, transcoding, CDN, and billing stack.",
+		icon: Tv,
+		accent: "data",
+		visual: "region",
+		features: [
+			"VOD library & live channels",
+			"Web, mobile & smart-TV apps",
+			"Multi-DRM & forensic watermarking",
+			"Subscriptions, pay-per-view & ads",
+			"Recommendations & viewer analytics",
+			"Global low-latency delivery",
+		],
+		highlights: [
+			{ label: "Apps", value: "Web · Mobile · TV" },
+			{ label: "Monetize", value: "SVOD · TVOD · AVOD" },
+			{ label: "Live", value: "<2s" },
+		],
+	},
+	{
+		slug: "lms",
+		short: "LMS",
+		name: "Viteloop LMS",
+		tagline: "Video-first learning platform.",
+		summary:
+			"Operate a secure learning platform for training, education, or customer academies — DRM-protected video, courses and learning paths, assessments, and completion tracking, on infrastructure you own.",
+		icon: GraduationCap,
+		accent: "accent-3",
+		visual: "arch",
+		features: [
+			"Courses, paths & modules",
+			"DRM-protected secure video",
+			"Quizzes & assessments",
+			"Progress & completion tracking",
+			"Certificates, SCORM & xAPI",
+			"SSO & cohort management",
+		],
+		highlights: [
+			{ label: "Video", value: "DRM-secure" },
+			{ label: "Standards", value: "SCORM · xAPI" },
+			{ label: "Access", value: "SSO" },
 		],
 	},
 ];

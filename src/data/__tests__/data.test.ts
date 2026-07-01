@@ -5,9 +5,9 @@ import { getProduct, PRODUCTS } from "#/data/products";
 import { SOLUTIONS } from "#/data/solutions";
 
 describe("data layer", () => {
-	it("has exactly 8 products with unique slugs", () => {
-		expect(PRODUCTS).toHaveLength(8);
-		expect(new Set(PRODUCTS.map((p) => p.slug)).size).toBe(8);
+	it("has exactly 9 products with unique slugs", () => {
+		expect(PRODUCTS).toHaveLength(9);
+		expect(new Set(PRODUCTS.map((p) => p.slug)).size).toBe(9);
 	});
 
 	it("every product has >=3 features and exactly 3 highlights", () => {

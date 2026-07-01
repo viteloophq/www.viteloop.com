@@ -1,8 +1,14 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowUpRight, GraduationCap, Tv } from "lucide-react";
 import { Container } from "#/components/primitives/container";
 import { PageHero } from "#/components/primitives/page-hero";
 import { Reveal } from "#/components/primitives/reveal";
-import { Section, SectionHeading } from "#/components/primitives/section";
+import {
+	Kicker,
+	Lead,
+	Section,
+	SectionHeading,
+} from "#/components/primitives/section";
 import { CTABand } from "#/components/sections/cta-band";
 import { CUSTOMERS } from "#/data/customers";
 import { SOLUTIONS } from "#/data/solutions";
@@ -18,6 +24,25 @@ export const Route = createFileRoute("/solutions")({
 			path: "/solutions",
 		}),
 });
+
+const VERTICALS = [
+	{
+		slug: "ott",
+		icon: Tv,
+		title: "OTT streaming",
+		blurb:
+			"Launch a branded VOD and live service with web, mobile, and TV apps, multi-DRM, and monetization — built on Viteloop Stream, CDN, DRM, and Billing.",
+		points: ["Web · Mobile · TV apps", "Multi-DRM & watermarking", "SVOD · TVOD · AVOD"],
+	},
+	{
+		slug: "lms",
+		icon: GraduationCap,
+		title: "Learning (LMS)",
+		blurb:
+			"Run a secure, video-first learning platform — courses, assessments, and certificates with DRM-protected delivery on infrastructure you own.",
+		points: ["DRM-secure video", "Courses & assessments", "SCORM · xAPI · SSO"],
+	},
+] as const;
 
 function SolutionsPage() {
 	return (
@@ -78,6 +103,57 @@ function SolutionsPage() {
 										</p>
 									</div>
 								</div>
+							);
+						})}
+					</div>
+				</Container>
+			</Section>
+
+			<Section className="border-t border-line">
+				<Container>
+					<div className="max-w-2xl">
+						<Kicker>Platforms</Kicker>
+						<SectionHeading>
+							Ready-made platforms,{" "}
+							<span className="accent-gradient">on your infrastructure.</span>
+						</SectionHeading>
+						<Lead>
+							Launch complete, fully branded products for your customers —
+							assembled from the Viteloop stack and owned end to end.
+						</Lead>
+					</div>
+					<div className="mt-10 grid gap-4 md:grid-cols-2">
+						{VERTICALS.map((v) => {
+							const Icon = v.icon;
+							return (
+								<Link
+									key={v.slug}
+									to="/products/$slug"
+									params={{ slug: v.slug }}
+									className="glass card-hover group flex flex-col rounded-2xl p-8"
+								>
+									<span className="grid h-12 w-12 place-items-center rounded-xl border border-line bg-bg-soft text-accent-2">
+										<Icon className="h-6 w-6" strokeWidth={1.6} />
+									</span>
+									<h3 className="mt-5 font-display text-xl font-semibold text-fg">
+										{v.title}
+									</h3>
+									<p className="mt-2 leading-relaxed text-fg-muted">{v.blurb}</p>
+									<ul className="mt-5 flex flex-wrap gap-2">
+										{v.points.map((p) => (
+											<li
+												key={p}
+												className="rounded-full border border-line bg-bg-soft/60 px-3 py-1 font-mono text-xs text-fg-muted"
+											>
+												{p}
+											</li>
+										))}
+									</ul>
+									<span className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-accent">
+										Explore {v.title}
+										<ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+									</span>
+								</Link>
 							);
 						})}
 					</div>

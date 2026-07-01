@@ -57,8 +57,8 @@ export function SiteHeader() {
 									<ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
 								</Link>
 								<div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-									<div className="glass w-[min(92vw,640px)] rounded-2xl p-3">
-										<div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+									<div className="glass w-[min(95vw,880px)] rounded-2xl p-3">
+										<div className="grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-3">
 											{PRODUCTS.map((p) => {
 												const Icon = p.icon;
 												return (
