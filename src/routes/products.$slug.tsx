@@ -9,22 +9,72 @@ import { EdgeNetwork } from "#/components/visuals/edge-network";
 import { GridBackdrop } from "#/components/visuals/grid-backdrop";
 import { RegionMap } from "#/components/visuals/region-map";
 import { getProduct, PRODUCTS } from "#/data/products";
+import { SITE } from "#/data/site";
+import { seo } from "#/lib/seo";
 import { cn } from "#/lib/utils";
 
 export const Route = createFileRoute("/products/$slug")({
 	component: ProductDetail,
 	head: ({ params }) => {
 		const product = getProduct(params.slug);
+		if (!product) {
+			return seo({
+				title: "Product not found — Viteloop",
+				description: "The requested Viteloop product could not be found.",
+				path: `/products/${params.slug}`,
+			});
+		}
+		const path = `/products/${product.slug}`;
 		return {
-			meta: [
+			...seo({
+				title: `${product.name} — Viteloop`,
+				description: product.summary,
+				path,
+			}),
+			scripts: [
 				{
-					title: product
-						? `${product.name} — Viteloop`
-						: "Product not found — Viteloop",
+					type: "application/ld+json",
+					children: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "SoftwareApplication",
+						name: product.name,
+						applicationCategory: "DeveloperApplication",
+						operatingSystem: "Linux, Kubernetes, Cloud, On-premise",
+						description: product.summary,
+						url: `${SITE.url}${path}`,
+						publisher: {
+							"@type": "Organization",
+							name: SITE.name,
+							url: SITE.url,
+						},
+					}),
 				},
 				{
-					name: "description",
-					content: product?.tagline ?? "Viteloop product",
+					type: "application/ld+json",
+					children: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "BreadcrumbList",
+						itemListElement: [
+							{
+								"@type": "ListItem",
+								position: 1,
+								name: "Home",
+								item: SITE.url,
+							},
+							{
+								"@type": "ListItem",
+								position: 2,
+								name: "Products",
+								item: `${SITE.url}/products`,
+							},
+							{
+								"@type": "ListItem",
+								position: 3,
+								name: product.name,
+								item: `${SITE.url}${path}`,
+							},
+						],
+					}),
 				},
 			],
 		};

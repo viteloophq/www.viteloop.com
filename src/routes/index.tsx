@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { seo } from "#/lib/seo";
 import { Architecture } from "#/components/sections/architecture";
 import { Benefits } from "#/components/sections/benefits";
 import { CTABand } from "#/components/sections/cta-band";
@@ -9,6 +8,7 @@ import { Hero } from "#/components/sections/hero";
 import { Problems } from "#/components/sections/problems";
 import { ProductGrid } from "#/components/sections/product-grid";
 import { TrustStrip } from "#/components/sections/trust-strip";
+import { seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/")({
 	component: Home,

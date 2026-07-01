@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { seo } from "#/lib/seo";
 import { CheckCircle2, Mail } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { Container } from "#/components/primitives/container";
@@ -8,20 +7,18 @@ import { Button } from "#/components/ui/button";
 import { CUSTOMERS } from "#/data/customers";
 import { PRODUCTS } from "#/data/products";
 import { SITE } from "#/data/site";
+import { seo } from "#/lib/seo";
 import { cn } from "#/lib/utils";
 
 export const Route = createFileRoute("/contact")({
 	component: ContactPage,
-	head: () => ({
-		meta: [
-			{ title: "Request a Demo — Viteloop" },
-			{
-				name: "description",
-				content:
-					"Request a technical demo of Viteloop and talk to our engineering team about deploying infrastructure software in your environment.",
-			},
-		],
-	}),
+	head: () =>
+		seo({
+			title: "Request a Demo — Viteloop",
+			description:
+				"Request a technical demo of Viteloop and talk to our engineering team about deploying infrastructure software in your environment.",
+			path: "/contact",
+		}),
 });
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

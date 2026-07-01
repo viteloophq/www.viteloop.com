@@ -46,7 +46,10 @@ export const Route = createRootRoute({
 			{ name: "description", content: SITE.description },
 			{ property: "og:site_name", content: SITE.name },
 			{ property: "og:type", content: "website" },
-			{ property: "og:title", content: "Viteloop — Powering the Next Internet" },
+			{
+				property: "og:title",
+				content: "Viteloop — Powering the Next Internet",
+			},
 			{ property: "og:description", content: SITE.description },
 			{ property: "og:image", content: `${SITE.url}/og.png` },
 			{ name: "twitter:card", content: "summary_large_image" },
@@ -55,7 +58,9 @@ export const Route = createRootRoute({
 		links: [
 			{ rel: "stylesheet", href: appCss },
 			{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-			{ rel: "apple-touch-icon", href: "/favicon.svg" },
+			{ rel: "icon", href: "/favicon.ico", sizes: "any" },
+			{ rel: "apple-touch-icon", href: "/logo192.png" },
+			{ rel: "manifest", href: "/manifest.json" },
 			{ rel: "preconnect", href: "https://fonts.googleapis.com" },
 			{
 				rel: "preconnect",

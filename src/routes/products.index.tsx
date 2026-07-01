@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { seo } from "#/lib/seo";
 import { PageHero } from "#/components/primitives/page-hero";
 import { CTABand } from "#/components/sections/cta-band";
 import { ProductGrid } from "#/components/sections/product-grid";
+import { seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/products/")({
 	component: ProductsPage,

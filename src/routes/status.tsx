@@ -3,19 +3,17 @@ import { CheckCircle2 } from "lucide-react";
 import { Container } from "#/components/primitives/container";
 import { PageHero } from "#/components/primitives/page-hero";
 import { Section } from "#/components/primitives/section";
+import { seo } from "#/lib/seo";
 import { cn } from "#/lib/utils";
 
 export const Route = createFileRoute("/status")({
 	component: StatusPage,
-	head: () => ({
-		meta: [
-			{ title: "Status — Viteloop" },
-			{
-				name: "description",
-				content: "Operational status of Viteloop systems and services.",
-			},
-		],
-	}),
+	head: () =>
+		seo({
+			title: "Status — Viteloop",
+			description: "Operational status of Viteloop systems and services.",
+			path: "/status",
+		}),
 });
 
 interface Component {

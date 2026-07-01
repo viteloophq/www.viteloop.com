@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { seo } from "#/lib/seo";
 import { Container } from "#/components/primitives/container";
 import { PageHero } from "#/components/primitives/page-hero";
 import { Reveal } from "#/components/primitives/reveal";
@@ -7,6 +6,7 @@ import { Section, SectionHeading } from "#/components/primitives/section";
 import { CTABand } from "#/components/sections/cta-band";
 import { CUSTOMERS } from "#/data/customers";
 import { SOLUTIONS } from "#/data/solutions";
+import { seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/solutions")({
 	component: SolutionsPage,

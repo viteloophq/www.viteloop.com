@@ -7,7 +7,6 @@ import {
 	Terminal,
 	Webhook,
 } from "lucide-react";
-import { seo } from "#/lib/seo";
 import { CodeBlock } from "#/components/primitives/code-block";
 import { Container } from "#/components/primitives/container";
 import { PageHero } from "#/components/primitives/page-hero";
@@ -15,6 +14,7 @@ import { Section, SectionHeading } from "#/components/primitives/section";
 import { CTABand } from "#/components/sections/cta-band";
 import { buttonVariants } from "#/components/ui/button";
 import { SITE } from "#/data/site";
+import { seo } from "#/lib/seo";
 import { cn } from "#/lib/utils";
 
 export const Route = createFileRoute("/developers")({

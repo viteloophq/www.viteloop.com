@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { seo } from "#/lib/seo";
 import { ArrowRight, Boxes, Rocket, Search, Terminal } from "lucide-react";
 import { Container } from "#/components/primitives/container";
+import { seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/docs")({
 	component: DocsPage,

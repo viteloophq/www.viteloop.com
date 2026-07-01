@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { seo } from "#/lib/seo";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "#/components/primitives/container";
 import { PageHero } from "#/components/primitives/page-hero";
 import { Section } from "#/components/primitives/section";
 import { Badge } from "#/components/ui/badge";
+import { seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/blog")({
 	component: BlogPage,

@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { seo } from "#/lib/seo";
 import {
 	ArrowUpRight,
 	GraduationCap,
@@ -15,6 +14,7 @@ import { PageHero } from "#/components/primitives/page-hero";
 import { Section, SectionHeading } from "#/components/primitives/section";
 import { Badge } from "#/components/ui/badge";
 import { buttonVariants } from "#/components/ui/button";
+import { seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/careers")({
 	component: CareersPage,

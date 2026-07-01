@@ -1,14 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Container } from "#/components/primitives/container";
+import { seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/terms")({
 	component: TermsPage,
-	head: () => ({
-		meta: [
-			{ title: "Terms of Service — Viteloop" },
-			{ name: "description", content: "Viteloop terms of service." },
-		],
-	}),
+	head: () =>
+		seo({
+			title: "Terms of Service — Viteloop",
+			description:
+				"The terms governing your access to and use of Viteloop's website, software, and related services.",
+			path: "/terms",
+		}),
 });
 
 function TermsPage() {
