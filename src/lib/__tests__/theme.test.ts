@@ -7,13 +7,13 @@ describe("theme helpers", () => {
 		localStorage.clear();
 	});
 
-	it("defaults to dark when nothing stored", () => {
-		expect(resolveInitialTheme()).toBe("dark");
+	it("defaults to light when nothing stored", () => {
+		expect(resolveInitialTheme()).toBe("light");
 	});
 
 	it("honors a stored preference", () => {
-		localStorage.setItem(THEME_KEY, "light");
-		expect(resolveInitialTheme()).toBe("light");
+		localStorage.setItem(THEME_KEY, "dark");
+		expect(resolveInitialTheme()).toBe("dark");
 	});
 
 	it("applyTheme toggles the html class and persists", () => {

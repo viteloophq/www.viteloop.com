@@ -3,9 +3,9 @@
 (function () {
 	try {
 		var t = localStorage.getItem("viteloop-theme");
-		if (t !== "light" && t !== "dark") t = "dark";
+		if (t !== "light" && t !== "dark") t = "light";
 		document.documentElement.classList.add(t);
 	} catch (e) {
-		document.documentElement.classList.add("dark");
+		document.documentElement.classList.add("light");
 	}
 })();

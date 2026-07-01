@@ -40,7 +40,7 @@ export const Route = createRootRoute({
 		meta: [
 			{ charSet: "utf-8" },
 			{ name: "viewport", content: "width=device-width, initial-scale=1" },
-			{ name: "theme-color", content: "#06070c" },
+			{ name: "theme-color", content: "#ffffff" },
 			{ name: "robots", content: "index, follow, max-image-preview:large" },
 			{ title: "Viteloop — Powering the Next Internet" },
 			{ name: "description", content: SITE.description },

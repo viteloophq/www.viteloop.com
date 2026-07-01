@@ -8,12 +8,12 @@ export const buttonVariants = cva(
 		variants: {
 			variant: {
 				primary:
-					"accent-bg text-white shadow-[0_10px_30px_-8px_var(--glow-a)] hover:-translate-y-0.5 hover:shadow-[0_16px_44px_-6px_var(--glow-a)]",
+					"bg-accent text-white shadow-[0_8px_22px_-8px_color-mix(in_oklab,var(--accent)_60%,transparent)] hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-8px_color-mix(in_oklab,var(--accent)_66%,transparent)]",
 				outline:
-					"glass text-fg hover:-translate-y-0.5 hover:border-line-strong",
+					"border border-line-strong bg-bg-elev text-fg hover:-translate-y-0.5 hover:border-accent hover:text-accent",
 				ghost: "text-fg-muted hover:bg-fg/5 hover:text-fg",
 				subtle:
-					"border border-line bg-bg-elev text-fg hover:border-line-strong",
+					"border border-line bg-bg-soft text-fg hover:border-line-strong",
 			},
 			size: {
 				sm: "h-9 px-4 text-sm",
