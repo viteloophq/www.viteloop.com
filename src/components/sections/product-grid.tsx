@@ -8,7 +8,7 @@ import {
 	Section,
 	SectionHeading,
 } from "#/components/primitives/section";
-import { PRODUCTS } from "#/data/products";
+import { PRODUCTS, productLinkProps } from "#/data/products";
 import { cn } from "#/lib/utils";
 
 interface ProductGridProps {
@@ -33,8 +33,8 @@ export function ProductGrid({
 							</span>
 						</SectionHeading>
 						<Lead>
-							Eight composable products that share one control plane, one API
-							surface, and one deployment model — run only what you need.
+							Composable products that share one control plane, one API surface,
+							and one deployment model — run only what you need.
 						</Lead>
 					</div>
 				)}
@@ -49,8 +49,7 @@ export function ProductGrid({
 						return (
 							<Reveal key={p.slug} delay={(i % 4) * 50}>
 								<Link
-									to="/products/$slug"
-									params={{ slug: p.slug }}
+									{...productLinkProps(p.slug)}
 									className="glass card-hover group flex h-full flex-col rounded-2xl p-6"
 								>
 									<span className="grid h-11 w-11 place-items-center rounded-xl border border-line bg-bg-soft text-accent-2">

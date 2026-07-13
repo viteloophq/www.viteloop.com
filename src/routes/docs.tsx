@@ -21,16 +21,7 @@ const DOCS_NAV = [
 	},
 	{
 		title: "Products",
-		items: [
-			"CDN",
-			"Stream",
-			"Transcoder",
-			"DRM",
-			"Billing",
-			"Storage",
-			"Edge",
-			"Gateway",
-		],
+		items: ["CDN", "Stream", "Transcoder", "DRM", "OTT", "LMS"],
 	},
 	{
 		title: "Guides",

@@ -8,7 +8,7 @@ import { ArchDiagram } from "#/components/visuals/arch-diagram";
 import { EdgeNetwork } from "#/components/visuals/edge-network";
 import { GridBackdrop } from "#/components/visuals/grid-backdrop";
 import { RegionMap } from "#/components/visuals/region-map";
-import { getProduct, PRODUCTS } from "#/data/products";
+import { getProduct, PRODUCTS, productLinkProps } from "#/data/products";
 import { SITE } from "#/data/site";
 import { seo } from "#/lib/seo";
 import { cn } from "#/lib/utils";
@@ -196,8 +196,7 @@ function ProductDetail() {
 							return (
 								<Link
 									key={p.slug}
-									to="/products/$slug"
-									params={{ slug: p.slug }}
+									{...productLinkProps(p.slug)}
 									className="glass card-hover inline-flex items-center gap-2.5 rounded-full px-4 py-2.5 text-sm font-medium text-fg"
 								>
 									<OtherIcon

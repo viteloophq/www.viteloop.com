@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { Github } from "lucide-react";
 import { Container } from "#/components/primitives/container";
 import { Logo } from "#/components/site/logo";
 import { FOOTER_COLUMNS } from "#/data/nav";
@@ -18,15 +17,6 @@ export function SiteFooter() {
 							{SITE.tagline} Software for building the next generation of
 							internet infrastructure.
 						</p>
-						<a
-							href={SITE.github}
-							target="_blank"
-							rel="noreferrer"
-							className="mt-5 inline-flex h-10 w-10 place-items-center justify-center rounded-full border border-line text-fg-muted transition-colors hover:border-line-strong hover:text-fg"
-							aria-label="Viteloop on GitHub"
-						>
-							<Github className="h-[18px] w-[18px]" strokeWidth={1.8} />
-						</a>
 					</div>
 
 					{FOOTER_COLUMNS.map((col) => (

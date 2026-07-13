@@ -3,12 +3,9 @@ import {
 	Globe,
 	GraduationCap,
 	type LucideIcon,
-	Network,
 	PlayCircle,
-	Receipt,
 	ShieldCheck,
 	Tv,
-	Waypoints,
 } from "lucide-react";
 
 export type ProductAccent = "accent" | "data" | "accent-3";
@@ -130,78 +127,6 @@ export const PRODUCTS: Product[] = [
 		],
 	},
 	{
-		slug: "billing",
-		short: "Billing",
-		name: "Viteloop Billing",
-		tagline: "Usage-based billing and subscriptions.",
-		summary:
-			"Meter usage, price plans, and invoice customers for the infrastructure you operate. Built for usage-based, subscription, and hybrid models with multi-currency and reseller hierarchies.",
-		icon: Receipt,
-		accent: "data",
-		visual: "arch",
-		features: [
-			"Usage metering & rating engine",
-			"Subscriptions and one-off charges",
-			"Tiered, volume & graduated pricing",
-			"Multi-currency invoicing",
-			"Reseller & sub-account hierarchies",
-			"Payment gateway integrations",
-		],
-		highlights: [
-			{ label: "Events / sec", value: "100k+" },
-			{ label: "Pricing models", value: "Any" },
-			{ label: "Currencies", value: "Multi" },
-		],
-	},
-	{
-		slug: "edge",
-		short: "Edge",
-		name: "Viteloop Edge",
-		tagline: "Distributed edge platform.",
-		summary:
-			"Run code and services at the edge of your network. Deploy lightweight compute, routing, and caching close to users with a single control plane spanning every region you operate.",
-		icon: Network,
-		accent: "accent",
-		visual: "network",
-		features: [
-			"Edge compute runtime",
-			"Anycast routing & load balancing",
-			"WASM and container workloads",
-			"Edge key-value & cache",
-			"Unified multi-region control plane",
-			"Health-aware traffic steering",
-		],
-		highlights: [
-			{ label: "Cold start", value: "<5ms" },
-			{ label: "Regions", value: "Yours" },
-			{ label: "Runtimes", value: "WASM" },
-		],
-	},
-	{
-		slug: "gateway",
-		short: "Gateway",
-		name: "Viteloop Gateway",
-		tagline: "API gateway and traffic management.",
-		summary:
-			"A high-throughput API gateway for routing, securing, and observing every request that enters your platform. Auth, rate limiting, and transformations defined as code and deployed across regions.",
-		icon: Waypoints,
-		accent: "data",
-		visual: "arch",
-		features: [
-			"Declarative routing & versioning",
-			"Auth, JWT & mTLS",
-			"Rate limiting & quotas",
-			"Request/response transformation",
-			"Observability & tracing built in",
-			"Config-as-code deployments",
-		],
-		highlights: [
-			{ label: "Throughput", value: "1M+ rps" },
-			{ label: "p99 overhead", value: "<1ms" },
-			{ label: "Config", value: "As code" },
-		],
-	},
-	{
 		slug: "ott",
 		short: "OTT",
 		name: "Viteloop OTT",
@@ -253,3 +178,14 @@ export const PRODUCTS: Product[] = [
 
 export const getProduct = (slug: string): Product | undefined =>
 	PRODUCTS.find((p) => p.slug === slug);
+
+/**
+ * Link target for a product. CDN has a dedicated static route
+ * (`/products/cdn`); every other product uses the shared `/products/$slug`
+ * template. Linking CDN to its canonical route avoids the router's
+ * "matched a different route" ambiguity warning.
+ */
+export const productLinkProps = (slug: string) =>
+	slug === "cdn"
+		? ({ to: "/products/cdn" } as const)
+		: ({ to: "/products/$slug", params: { slug } } as const);

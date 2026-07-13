@@ -21,6 +21,7 @@ import { Route as CareersRouteImport } from './routes/careers'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as ProductsCdnRouteImport } from './routes/products.cdn'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 
 const TermsRoute = TermsRouteImport.update({
@@ -83,6 +84,11 @@ const ProductsIndexRoute = ProductsIndexRouteImport.update({
   path: '/products/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsCdnRoute = ProductsCdnRouteImport.update({
+  id: '/products/cdn',
+  path: '/products/cdn',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsSlugRoute = ProductsSlugRouteImport.update({
   id: '/products/$slug',
   path: '/products/$slug',
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/status': typeof StatusRoute
   '/terms': typeof TermsRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/products/cdn': typeof ProductsCdnRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -117,6 +124,7 @@ export interface FileRoutesByTo {
   '/status': typeof StatusRoute
   '/terms': typeof TermsRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/products/cdn': typeof ProductsCdnRoute
   '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
@@ -133,6 +141,7 @@ export interface FileRoutesById {
   '/status': typeof StatusRoute
   '/terms': typeof TermsRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/products/cdn': typeof ProductsCdnRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
@@ -150,6 +159,7 @@ export interface FileRouteTypes {
     | '/status'
     | '/terms'
     | '/products/$slug'
+    | '/products/cdn'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -165,6 +175,7 @@ export interface FileRouteTypes {
     | '/status'
     | '/terms'
     | '/products/$slug'
+    | '/products/cdn'
     | '/products'
   id:
     | '__root__'
@@ -180,6 +191,7 @@ export interface FileRouteTypes {
     | '/status'
     | '/terms'
     | '/products/$slug'
+    | '/products/cdn'
     | '/products/'
   fileRoutesById: FileRoutesById
 }
@@ -196,6 +208,7 @@ export interface RootRouteChildren {
   StatusRoute: typeof StatusRoute
   TermsRoute: typeof TermsRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
+  ProductsCdnRoute: typeof ProductsCdnRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
@@ -285,6 +298,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/cdn': {
+      id: '/products/cdn'
+      path: '/products/cdn'
+      fullPath: '/products/cdn'
+      preLoaderRoute: typeof ProductsCdnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/$slug': {
       id: '/products/$slug'
       path: '/products/$slug'
@@ -308,6 +328,7 @@ const rootRouteChildren: RootRouteChildren = {
   StatusRoute: StatusRoute,
   TermsRoute: TermsRoute,
   ProductsSlugRoute: ProductsSlugRoute,
+  ProductsCdnRoute: ProductsCdnRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport

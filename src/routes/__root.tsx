@@ -21,10 +21,9 @@ const ORG_JSONLD = {
 	"@type": "Organization",
 	name: SITE.name,
 	url: SITE.url,
-	logo: `${SITE.url}/favicon.svg`,
+	logo: `${SITE.url}/icon.png`,
 	description: SITE.description,
 	slogan: SITE.tagline,
-	sameAs: [SITE.github],
 };
 
 const WEBSITE_JSONLD = {
@@ -57,9 +56,8 @@ export const Route = createRootRoute({
 		],
 		links: [
 			{ rel: "stylesheet", href: appCss },
-			{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-			{ rel: "icon", href: "/favicon.ico", sizes: "any" },
-			{ rel: "apple-touch-icon", href: "/logo192.png" },
+			{ rel: "icon", href: "/icon.png", type: "image/png", sizes: "any" },
+			{ rel: "apple-touch-icon", href: "/icon.png" },
 			{ rel: "manifest", href: "/manifest.json" },
 			{ rel: "preconnect", href: "https://fonts.googleapis.com" },
 			{

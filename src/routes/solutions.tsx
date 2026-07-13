@@ -31,7 +31,7 @@ const VERTICALS = [
 		icon: Tv,
 		title: "OTT streaming",
 		blurb:
-			"Launch a branded VOD and live service with web, mobile, and TV apps, multi-DRM, and monetization — built on Viteloop Stream, CDN, DRM, and Billing.",
+			"Launch a branded VOD and live service with web, mobile, and TV apps, multi-DRM, and monetization — built on Viteloop Stream, CDN, and DRM.",
 		points: ["Web · Mobile · TV apps", "Multi-DRM & watermarking", "SVOD · TVOD · AVOD"],
 	},
 	{

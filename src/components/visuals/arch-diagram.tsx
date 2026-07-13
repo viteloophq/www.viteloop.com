@@ -13,13 +13,13 @@ const LAYERS: Layer[] = [
 		icon: Network,
 		name: "Edge Layer",
 		desc: "Where your users connect",
-		chips: ["CDN", "Edge", "Gateway"],
+		chips: ["CDN", "Delivery"],
 	},
 	{
 		icon: Layers,
 		name: "Control Plane",
 		desc: "Orchestration, policy & APIs",
-		chips: ["Multi-region Orchestration", "Billing", "DRM"],
+		chips: ["Multi-region Orchestration", "DRM"],
 	},
 	{
 		icon: Cpu,

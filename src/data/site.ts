@@ -5,6 +5,5 @@ export const SITE = {
 	thesis: "Infrastructure software, not infrastructure services.",
 	description:
 		"Viteloop provides enterprise software for organizations building private CDN platforms, media infrastructure, edge networks, and cloud-native services. Deploy in your own environment with complete ownership and control.",
-	github: "https://github.com/viteloophq",
 	email: "hello@viteloop.com",
 } as const;

@@ -1,5 +1,3 @@
-import { SITE } from "#/data/site";
-
 export interface NavLink {
 	label: string;
 	/** Internal route path. */
@@ -38,7 +36,6 @@ export const FOOTER_COLUMNS: NavGroup[] = [
 		links: [
 			{ label: "Documentation", to: "/docs" },
 			{ label: "Developers", to: "/developers" },
-			{ label: "GitHub", href: SITE.github },
 		],
 	},
 	{

@@ -10,7 +10,7 @@ export const Route = createFileRoute("/products/")({
 		seo({
 			title: "Products — Viteloop",
 			description:
-				"Eight composable infrastructure products — CDN, Stream, Transcoder, DRM, Billing, Storage, Edge, and Gateway — that you deploy and own.",
+				"Composable infrastructure products — CDN, Stream, Transcoder, DRM, OTT, and LMS — that you deploy and own.",
 			path: "/products",
 		}),
 });
@@ -22,9 +22,9 @@ function ProductsPage() {
 				kicker="The Viteloop platform"
 				title="The building blocks of your infrastructure."
 			>
-				Eight composable products that share one control plane, one API surface,
-				and one deployment model. Run the whole platform or a single component —
-				in your environment, under your control.
+				Composable products that share one control plane, one API surface, and
+				one deployment model. Run the whole platform or a single component — in
+				your environment, under your control.
 			</PageHero>
 			<ProductGrid variant="detailed" heading={false} />
 			<CTABand

@@ -1,11 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Github } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "#/components/primitives/container";
 import { buttonVariants } from "#/components/ui/button";
 import { EdgeNetwork } from "#/components/visuals/edge-network";
 import { GridBackdrop } from "#/components/visuals/grid-backdrop";
 import { SITE } from "#/data/site";
-import { cn } from "#/lib/utils";
 
 export function Hero() {
 	return (
@@ -33,14 +32,6 @@ export function Hero() {
 						>
 							View Documentation
 						</Link>
-						<a
-							href={SITE.github}
-							target="_blank"
-							rel="noreferrer"
-							className={cn(buttonVariants({ variant: "ghost", size: "lg" }))}
-						>
-							<Github className="h-4 w-4" /> GitHub
-						</a>
 					</div>
 					<p className="mt-8 font-mono text-xs uppercase tracking-[0.18em] text-fg-faint">
 						Self-hosted · Cloud-agnostic · Kubernetes-native

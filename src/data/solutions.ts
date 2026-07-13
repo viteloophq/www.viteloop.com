@@ -25,7 +25,7 @@ export const SOLUTIONS: Solution[] = [
 		outcome:
 			"Standards-based software you run yourself — portable across any provider, with no platform tax.",
 		icon: Lock,
-		products: ["cdn", "edge", "gateway"],
+		products: ["cdn", "stream", "drm"],
 	},
 	{
 		title: "Maintain full ownership",
@@ -43,7 +43,7 @@ export const SOLUTIONS: Solution[] = [
 		outcome:
 			"Run on bare metal, any cloud, or on-prem — including air-gapped and sovereign environments.",
 		icon: Globe2,
-		products: ["edge", "cdn"],
+		products: ["cdn", "stream"],
 	},
 	{
 		title: "Scale globally",
@@ -52,7 +52,7 @@ export const SOLUTIONS: Solution[] = [
 		outcome:
 			"Add nodes and regions on demand from a single control plane, from one rack to a global fleet.",
 		icon: Boxes,
-		products: ["edge", "cdn", "stream"],
+		products: ["cdn", "stream", "transcoder"],
 	},
 	{
 		title: "Integrate with your environment",
@@ -61,7 +61,7 @@ export const SOLUTIONS: Solution[] = [
 		outcome:
 			"API-first and Kubernetes-native, with SSO, RBAC, and OpenTelemetry that slot into your stack.",
 		icon: Puzzle,
-		products: ["gateway", "billing"],
+		products: ["cdn", "drm"],
 	},
 	{
 		title: "Customize every component",
@@ -70,6 +70,6 @@ export const SOLUTIONS: Solution[] = [
 		outcome:
 			"Composable, configurable software with programmable edges and policies defined as code.",
 		icon: Settings2,
-		products: ["cdn", "gateway", "transcoder"],
+		products: ["cdn", "transcoder", "stream"],
 	},
 ];

@@ -27,10 +27,10 @@ const COMPONENTS: Component[] = [
 	{ name: "Global CDN", uptime: "100.00%", degraded: [] },
 	{ name: "Streaming (VOD & Live)", uptime: "99.99%", degraded: [] },
 	{ name: "Transcoding", uptime: "99.94%", degraded: [41, 42] },
-	{ name: "Object Storage", uptime: "100.00%", degraded: [] },
-	{ name: "API Gateway", uptime: "99.98%", degraded: [] },
+	{ name: "DRM & Licensing", uptime: "100.00%", degraded: [] },
+	{ name: "OTT Platform", uptime: "99.98%", degraded: [] },
 	{ name: "Dashboard", uptime: "99.97%", degraded: [12] },
-	{ name: "Billing", uptime: "99.99%", degraded: [70] },
+	{ name: "Control Plane API", uptime: "99.99%", degraded: [70] },
 ];
 
 const INCIDENTS = [

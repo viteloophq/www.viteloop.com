@@ -19,16 +19,17 @@
   --surface-strong: #ffffff;
   --line: rgba(15, 23, 42, 0.09);
   --line-strong: rgba(15, 23, 42, 0.15);
-  --fg: #0b1220;
+  --fg: #0f172a;           /* brand dark navy */
   --fg-muted: #4a5568;
   --fg-faint: #7a8598;
-  --accent: #2563eb;       /* royal blue */
-  --accent-2: #3b82f6;     /* bright blue — icons / accents / data */
-  --accent-3: #4f46e5;     /* indigo — rare tertiary */
-  --data: #60a5fa;         /* light blue — diagram flows */
+  /* Minimal brand: a single primary blue. */
+  --accent: #2563eb;       /* enterprise blue */
+  --accent-2: #2563eb;
+  --accent-3: #2563eb;
+  --data: #2563eb;
   --glow-a: rgba(37, 99, 235, 0.1);
-  --glow-b: rgba(59, 130, 246, 0.08);
-  --glow-c: rgba(79, 70, 229, 0.05);
+  --glow-b: rgba(37, 99, 235, 0.08);
+  --glow-c: rgba(37, 99, 235, 0.05);
   --grid-line: rgba(15, 23, 42, 0.045);
   --shadow: 0 24px 60px -30px rgba(15, 23, 42, 0.18);
   --shadow-sm: 0 10px 30px -20px rgba(15, 23, 42, 0.13);
@@ -46,13 +47,14 @@
   --fg: #eef2fb;
   --fg-muted: #9fabc6;
   --fg-faint: #6a7794;
-  --accent: #5b8dff;       /* bright royal blue for dark */
+  /* Minimal brand: the same primary blue, lifted for legibility on navy. */
+  --accent: #4f83ff;       /* enterprise blue, tuned for dark */
   --accent-2: #4f83ff;
-  --accent-3: #8f9bff;
-  --data: #6aa8ff;
-  --glow-a: rgba(91, 141, 255, 0.2);
+  --accent-3: #4f83ff;
+  --data: #4f83ff;
+  --glow-a: rgba(79, 131, 255, 0.2);
   --glow-b: rgba(79, 131, 255, 0.14);
-  --glow-c: rgba(143, 155, 255, 0.1);
+  --glow-c: rgba(79, 131, 255, 0.1);
   --grid-line: rgba(255, 255, 255, 0.05);
   --shadow: 0 30px 70px -28px rgba(0, 0, 0, 0.7);
   --shadow-sm: 0 12px 30px -16px rgba(0, 0, 0, 0.55);

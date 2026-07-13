@@ -1,13 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, Github, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Container } from "#/components/primitives/container";
 import { Logo } from "#/components/site/logo";
 import { ThemeToggle } from "#/components/site/theme-toggle";
 import { buttonVariants } from "#/components/ui/button";
 import { HEADER_NAV } from "#/data/nav";
-import { PRODUCTS } from "#/data/products";
-import { SITE } from "#/data/site";
+import { PRODUCTS, productLinkProps } from "#/data/products";
 import { cn } from "#/lib/utils";
 
 export function SiteHeader() {
@@ -56,7 +55,7 @@ export function SiteHeader() {
 									Products
 									<ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
 								</Link>
-								<div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+								<div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
 									<div className="glass w-[min(95vw,880px)] rounded-2xl p-3">
 										<div className="grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-3">
 											{PRODUCTS.map((p) => {
@@ -64,8 +63,7 @@ export function SiteHeader() {
 												return (
 													<Link
 														key={p.slug}
-														to="/products/$slug"
-														params={{ slug: p.slug }}
+														{...productLinkProps(p.slug)}
 														className="group/item flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-fg/5"
 													>
 														<span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-line bg-bg-soft text-accent-2">
@@ -103,15 +101,6 @@ export function SiteHeader() {
 				</nav>
 
 				<div className="ml-auto flex items-center gap-2">
-					<a
-						href={SITE.github}
-						target="_blank"
-						rel="noreferrer"
-						aria-label="Viteloop on GitHub"
-						className="hidden h-10 w-10 place-items-center rounded-full border border-line text-fg-muted transition-colors hover:border-line-strong hover:text-fg sm:grid"
-					>
-						<Github className="h-[18px] w-[18px]" strokeWidth={1.8} />
-					</a>
 					<ThemeToggle />
 					<Link
 						to="/contact"
@@ -156,8 +145,7 @@ export function SiteHeader() {
 							{PRODUCTS.map((p) => (
 								<Link
 									key={p.slug}
-									to="/products/$slug"
-									params={{ slug: p.slug }}
+									{...productLinkProps(p.slug)}
 									onClick={() => setMobileOpen(false)}
 									className="rounded-lg px-3 py-2 text-sm text-fg-muted hover:bg-fg/5 hover:text-fg"
 								>

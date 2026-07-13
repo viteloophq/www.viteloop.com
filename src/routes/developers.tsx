@@ -13,9 +13,7 @@ import { PageHero } from "#/components/primitives/page-hero";
 import { Section, SectionHeading } from "#/components/primitives/section";
 import { CTABand } from "#/components/sections/cta-band";
 import { buttonVariants } from "#/components/ui/button";
-import { SITE } from "#/data/site";
 import { seo } from "#/lib/seo";
-import { cn } from "#/lib/utils";
 
 export const Route = createFileRoute("/developers")({
 	component: DevelopersPage,
@@ -151,14 +149,6 @@ function DevelopersPage() {
 							<Link to="/docs" className={buttonVariants()}>
 								<BookOpen className="h-4 w-4" /> Read the docs
 							</Link>
-							<a
-								href={SITE.github}
-								target="_blank"
-								rel="noreferrer"
-								className={cn(buttonVariants({ variant: "outline" }))}
-							>
-								Browse GitHub
-							</a>
 						</div>
 					</div>
 					<ol className="flex flex-col gap-4">
