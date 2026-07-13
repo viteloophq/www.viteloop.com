@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Architecture } from "#/components/sections/architecture";
 import { Benefits } from "#/components/sections/benefits";
+import { ControlPlane } from "#/components/sections/control-plane";
 import { CTABand } from "#/components/sections/cta-band";
 import { DeployAnywhere } from "#/components/sections/deploy-anywhere";
 import { DeveloperTeaser } from "#/components/sections/developer-teaser";
 import { Hero } from "#/components/sections/hero";
 import { Problems } from "#/components/sections/problems";
-import { ProductGrid } from "#/components/sections/product-grid";
+import { ProductBento } from "#/components/sections/product-bento";
 import { TrustStrip } from "#/components/sections/trust-strip";
 import { seo } from "#/lib/seo";
 
@@ -26,12 +26,12 @@ function Home() {
 		<>
 			<Hero />
 			<TrustStrip />
-			<ProductGrid />
-			<Benefits />
-			<DeployAnywhere />
+			<ProductBento />
 			<Problems />
-			<Architecture />
+			<ControlPlane />
+			<DeployAnywhere />
 			<DeveloperTeaser />
+			<Benefits />
 			<CTABand />
 		</>
 	);

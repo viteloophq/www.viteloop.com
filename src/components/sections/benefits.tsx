@@ -1,11 +1,7 @@
+import { SectionTag } from "#/components/primitives/blueprint";
 import { Container } from "#/components/primitives/container";
 import { Reveal } from "#/components/primitives/reveal";
-import {
-	Kicker,
-	Lead,
-	Section,
-	SectionHeading,
-} from "#/components/primitives/section";
+import { Lead, Section, SectionHeading } from "#/components/primitives/section";
 import { BENEFITS } from "#/data/benefits";
 
 export function Benefits() {
@@ -13,7 +9,7 @@ export function Benefits() {
 		<Section className="border-t border-line">
 			<Container>
 				<div className="max-w-2xl">
-					<Kicker>Why Viteloop</Kicker>
+					<SectionTag index="06" label="Principles" />
 					<SectionHeading>
 						Engineering principles, not feature checklists.
 					</SectionHeading>

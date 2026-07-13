@@ -1,12 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Terminal } from "lucide-react";
+import { CornerTicks, SectionTag } from "#/components/primitives/blueprint";
 import { Container } from "#/components/primitives/container";
-import {
-	Kicker,
-	Lead,
-	Section,
-	SectionHeading,
-} from "#/components/primitives/section";
+import { Lead, Section, SectionHeading } from "#/components/primitives/section";
 import { buttonVariants } from "#/components/ui/button";
 
 export function DeveloperTeaser() {
@@ -14,7 +10,7 @@ export function DeveloperTeaser() {
 		<Section className="border-t border-line">
 			<Container className="grid items-center gap-12 lg:grid-cols-2">
 				<div>
-					<Kicker>Developers</Kicker>
+					<SectionTag index="05" label="Developers" />
 					<SectionHeading>
 						API-first.{" "}
 						<span className="accent-gradient">Built for engineers.</span>
@@ -34,12 +30,14 @@ export function DeveloperTeaser() {
 					</div>
 				</div>
 
-				<div className="glass overflow-hidden rounded-2xl">
-					<div className="flex items-center gap-2 border-b border-line px-4 py-3">
-						<Terminal className="h-4 w-4 text-fg-faint" />
-						<span className="font-mono text-xs text-fg-faint">
-							deploy an edge rule
-						</span>
+				<div className="relative">
+					<CornerTicks />
+					<div className="glass overflow-hidden rounded-2xl">
+						<div className="flex items-center gap-2 border-b border-line px-4 py-3">
+							<Terminal className="h-4 w-4 text-fg-faint" />
+							<span className="font-mono text-xs text-fg-faint">
+								deploy an edge rule
+							</span>
 						<span className="ml-auto flex gap-1.5">
 							<span className="h-2.5 w-2.5 rounded-full bg-fg-faint/30" />
 							<span className="h-2.5 w-2.5 rounded-full bg-fg-faint/30" />
@@ -90,6 +88,7 @@ export function DeveloperTeaser() {
 							<span className="text-fg-faint">{" }"}</span>
 						</code>
 					</pre>
+					</div>
 				</div>
 			</Container>
 		</Section>

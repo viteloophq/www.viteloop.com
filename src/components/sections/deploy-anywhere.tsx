@@ -1,11 +1,7 @@
 import { Check } from "lucide-react";
+import { CornerTicks, SectionTag } from "#/components/primitives/blueprint";
 import { Container } from "#/components/primitives/container";
-import {
-	Kicker,
-	Lead,
-	Section,
-	SectionHeading,
-} from "#/components/primitives/section";
+import { Lead, Section, SectionHeading } from "#/components/primitives/section";
 import { RegionMap } from "#/components/visuals/region-map";
 
 const POINTS = [
@@ -20,7 +16,7 @@ export function DeployAnywhere() {
 		<Section>
 			<Container className="grid items-center gap-12 lg:grid-cols-2">
 				<div>
-					<Kicker>Deploy anywhere</Kicker>
+					<SectionTag index="04" label="Deploy anywhere" />
 					<SectionHeading>
 						Deploy anywhere.{" "}
 						<span className="accent-gradient">Scale globally.</span>
@@ -45,7 +41,12 @@ export function DeployAnywhere() {
 						))}
 					</ul>
 				</div>
-				<div className="glass relative overflow-hidden rounded-2xl p-6">
+				<div className="frame relative rounded-2xl p-6">
+					<CornerTicks />
+					<div className="mb-4 flex items-center justify-between">
+						<span className="mono-label">region.map / anycast</span>
+						<span className="mono-label text-accent">● global</span>
+					</div>
 					<RegionMap />
 				</div>
 			</Container>

@@ -1,11 +1,7 @@
+import { SectionTag } from "#/components/primitives/blueprint";
 import { Container } from "#/components/primitives/container";
 import { Reveal } from "#/components/primitives/reveal";
-import {
-	Kicker,
-	Lead,
-	Section,
-	SectionHeading,
-} from "#/components/primitives/section";
+import { Lead, Section, SectionHeading } from "#/components/primitives/section";
 import { SOLUTIONS } from "#/data/solutions";
 
 export function Problems() {
@@ -13,7 +9,7 @@ export function Problems() {
 		<Section className="border-t border-line">
 			<Container>
 				<div className="max-w-2xl">
-					<Kicker>Ownership</Kicker>
+					<SectionTag index="02" label="Ownership" />
 					<SectionHeading>
 						The problems with renting your infrastructure.
 					</SectionHeading>

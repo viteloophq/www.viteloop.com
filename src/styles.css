@@ -169,6 +169,121 @@ h1, h2, h3, .font-display {
   box-shadow: var(--shadow), 0 0 0 1px color-mix(in oklab, var(--accent) 22%, transparent);
 }
 
+/* ---- blueprint / control-plane system ---- */
+
+/* faint technical grid, tighter than the backdrop */
+.blueprint-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* monospace annotation label — fainter sibling of .kicker, no dot */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+
+/* section index chip: 01 / 02 ... */
+.index-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+/* small plus/cross tick used at blueprint corners & joints */
+.tick-cross {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  color: color-mix(in oklab, var(--accent) 55%, transparent);
+  pointer-events: none;
+}
+.tick-cross::before,
+.tick-cross::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+}
+.tick-cross::before {
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  transform: translateX(-0.5px);
+}
+.tick-cross::after {
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  transform: translateY(-0.5px);
+}
+
+/* framed technical panel */
+.frame {
+  position: relative;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(165deg, var(--surface-strong), var(--surface));
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---- orchestrated page-load entrance ---- */
+@keyframes vl-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.vl-rise {
+  opacity: 0;
+  animation: vl-rise 0.74s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes vl-scale-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.vl-scale-in {
+  opacity: 0;
+  animation: vl-scale-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* a thin sweeping accent line for section joints */
+@keyframes vl-sweep {
+  to {
+    background-position: 200% 0;
+  }
+}
+.joint-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--accent) 40%, transparent) 20%,
+    color-mix(in oklab, var(--accent) 40%, transparent) 80%,
+    transparent
+  );
+}
+
 /* underline-grow nav link */
 .nav-link {
   position: relative;
