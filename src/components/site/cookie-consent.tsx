@@ -7,7 +7,6 @@ import {
 	getStoredConsent,
 	rejectNonEssential,
 } from "#/lib/consent";
-import { cn } from "#/lib/utils";
 
 export function CookieConsent() {
 	// Server render and first client render both produce null (no flash);
@@ -37,8 +36,7 @@ export function CookieConsent() {
 	}
 
 	return (
-		<div
-			role="dialog"
+		<section
 			aria-label="Cookie consent"
 			className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-bg-soft/95 backdrop-blur"
 		>
@@ -58,19 +56,19 @@ export function CookieConsent() {
 					<button
 						type="button"
 						onClick={reject}
-						className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}
+						className={buttonVariants({ variant: "ghost", size: "sm" })}
 					>
 						Reject non-essential
 					</button>
 					<button
 						type="button"
 						onClick={accept}
-						className={cn(buttonVariants({ variant: "primary", size: "sm" }))}
+						className={buttonVariants({ variant: "primary", size: "sm" })}
 					>
 						Accept all
 					</button>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 }
