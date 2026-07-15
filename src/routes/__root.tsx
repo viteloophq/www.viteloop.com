@@ -8,6 +8,7 @@ import {
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 import { Container } from "#/components/primitives/container";
+import { CookieConsent } from "#/components/site/cookie-consent";
 import { SiteFooter } from "#/components/site/site-footer";
 import { SiteHeader } from "#/components/site/site-header";
 import { buttonVariants } from "#/components/ui/button";
@@ -88,6 +89,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<SiteHeader />
 				<main className="flex-1">{children}</main>
 				<SiteFooter />
+				<CookieConsent />
 				<TanStackDevtools
 					config={{ position: "bottom-right" }}
 					plugins={[
