@@ -105,8 +105,11 @@ if (hasConsent("analytics")) return <PlausibleScript />;
   Styled with existing tokens — `bg-bg-soft`, `border-line`, `text-fg-muted`,
   `buttonVariants`. Contents: one line of copy + a link to `/privacy` +
   **Accept all** (primary button) + **Reject non-essential** (ghost/outline).
-- Accessibility: `role="dialog"` with `aria-label="Cookie consent"`; buttons are
-  real `<button>`s; the bar is keyboard reachable.
+- Accessibility: a landmark `<section aria-label="Cookie consent">` (implicit
+  `role="region"`) — chosen over `role="dialog"` because the banner is
+  non-modal (it doesn't trap focus or block the page, so `dialog` would
+  mislead assistive tech); buttons are real `<button>`s; the bar is keyboard
+  reachable.
 
 ### 4. Footer "Cookie settings" link — `src/components/site/site-footer.tsx`
 
