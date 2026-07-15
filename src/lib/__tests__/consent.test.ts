@@ -45,6 +45,14 @@ describe("consent module", () => {
 		expect(getStoredConsent()).toBeNull();
 	});
 
+	it("returns null when a stored field is not a boolean", () => {
+		localStorage.setItem(
+			CONSENT_KEY,
+			JSON.stringify({ v: CONSENT_VERSION, analytics: "yes", marketing: true }),
+		);
+		expect(getStoredConsent()).toBeNull();
+	});
+
 	it("returns null for malformed json", () => {
 		localStorage.setItem(CONSENT_KEY, "not json{");
 		expect(getStoredConsent()).toBeNull();
@@ -55,6 +63,22 @@ describe("consent module", () => {
 		window.addEventListener(CONSENT_EVENT, listener);
 		setConsent({ analytics: true, marketing: false });
 		expect(listener).toHaveBeenCalledTimes(1);
+		const event = listener.mock.calls[0][0] as CustomEvent;
+		expect(event.detail).toEqual({ analytics: true, marketing: false });
 		window.removeEventListener(CONSENT_EVENT, listener);
+	});
+
+	it("dispatches CONSENT_EVENT even when the write throws", () => {
+		const setItem = vi
+			.spyOn(Storage.prototype, "setItem")
+			.mockImplementation(() => {
+				throw new Error("quota");
+			});
+		const listener = vi.fn();
+		window.addEventListener(CONSENT_EVENT, listener);
+		setConsent({ analytics: true, marketing: true });
+		expect(listener).toHaveBeenCalledTimes(1);
+		window.removeEventListener(CONSENT_EVENT, listener);
+		setItem.mockRestore();
 	});
 });
