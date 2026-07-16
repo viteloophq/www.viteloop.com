@@ -1,7 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Container } from "#/components/primitives/container";
 import { PageHero } from "#/components/primitives/page-hero";
+import { Section } from "#/components/primitives/section";
 import { CTABand } from "#/components/sections/cta-band";
 import { ProductGrid } from "#/components/sections/product-grid";
+import { CAPABILITIES } from "#/data/capabilities";
 import { breadcrumbScript, seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/products/")({
@@ -34,6 +37,45 @@ function ProductsPage() {
 				your environment, under your control.
 			</PageHero>
 			<ProductGrid variant="detailed" heading={false} />
+
+			<Section className="border-t border-line">
+				<Container>
+					<div className="max-w-2xl">
+						<p className="kicker">Platform capabilities</p>
+						<h2 className="mt-5 text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
+							The capabilities behind the platform.
+						</h2>
+						<p className="mt-4 text-lg leading-relaxed text-fg-muted">
+							Edge, security, and delivery features that power the Viteloop
+							products — each available across the infrastructure you run.
+						</p>
+					</div>
+					<div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+						{CAPABILITIES.map((c) => {
+							const Icon = c.icon;
+							return (
+								<Link
+									key={c.slug}
+									to="/products/$slug"
+									params={{ slug: c.slug }}
+									className="glass card-hover rounded-2xl p-6"
+								>
+									<span className="grid h-11 w-11 place-items-center rounded-xl border border-line bg-bg-soft text-accent-2">
+										<Icon className="h-5 w-5" strokeWidth={1.7} />
+									</span>
+									<h3 className="mt-4 font-display text-lg font-semibold text-fg">
+										{c.name}
+									</h3>
+									<p className="mt-2 text-sm leading-relaxed text-fg-muted">
+										{c.tagline}
+									</p>
+								</Link>
+							);
+						})}
+					</div>
+				</Container>
+			</Section>
+
 			<CTABand
 				heading="See the platform in your environment."
 				subtext="Request a technical walkthrough and we'll show you how Viteloop deploys into your stack."

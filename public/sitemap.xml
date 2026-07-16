@@ -8,6 +8,12 @@
   <url><loc>https://www.viteloop.com/products/drm</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.viteloop.com/products/ott</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.viteloop.com/products/lms</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.viteloop.com/products/anycast-dns</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.viteloop.com/products/global-load-balancer</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.viteloop.com/products/waf</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.viteloop.com/products/ddos-protection</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.viteloop.com/products/edge-compute</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.viteloop.com/products/video-cdn</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.viteloop.com/solutions</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.viteloop.com/developers</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.viteloop.com/docs</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>

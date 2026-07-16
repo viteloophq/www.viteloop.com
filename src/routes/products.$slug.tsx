@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, ChevronDown } from "lucide-react";
 import { Container } from "#/components/primitives/container";
 import { Section } from "#/components/primitives/section";
 import { CTABand } from "#/components/sections/cta-band";
@@ -8,16 +8,21 @@ import { ArchDiagram } from "#/components/visuals/arch-diagram";
 import { EdgeNetwork } from "#/components/visuals/edge-network";
 import { GridBackdrop } from "#/components/visuals/grid-backdrop";
 import { RegionMap } from "#/components/visuals/region-map";
-import { getProduct, PRODUCTS, productLinkProps } from "#/data/products";
+import {
+	type Capability,
+	getCatalogEntry,
+	isCapability,
+} from "#/data/capabilities";
+import { PRODUCTS, type Product, productLinkProps } from "#/data/products";
 import { SITE } from "#/data/site";
-import { seo } from "#/lib/seo";
+import { breadcrumbScript, seo } from "#/lib/seo";
 import { cn } from "#/lib/utils";
 
 export const Route = createFileRoute("/products/$slug")({
 	component: ProductDetail,
 	head: ({ params }) => {
-		const product = getProduct(params.slug);
-		if (!product) {
+		const entry = getCatalogEntry(params.slug);
+		if (!entry) {
 			const base = seo({
 				title: "Product not found — Viteloop",
 				description: "The requested Viteloop product could not be found.",
@@ -29,58 +34,72 @@ export const Route = createFileRoute("/products/$slug")({
 				meta: [...base.meta, { name: "robots", content: "noindex, follow" }],
 			};
 		}
-		const path = `/products/${product.slug}`;
+
+		const path = `/products/${entry.slug}`;
+		const capability = isCapability(entry) ? entry : null;
+		const title = capability ? capability.seoTitle : `${entry.name} — Viteloop`;
+		const description = capability ? capability.seoDescription : entry.summary;
+
+		// Capabilities are platform features (schema.org Service); the six core
+		// products are SoftwareApplications.
+		const primarySchema = capability
+			? {
+					"@context": "https://schema.org",
+					"@type": "Service",
+					name: entry.name,
+					serviceType: entry.name,
+					description: entry.summary,
+					areaServed: "Worldwide",
+					provider: {
+						"@type": "Organization",
+						name: SITE.name,
+						url: SITE.url,
+					},
+					url: `${SITE.url}${path}`,
+				}
+			: {
+					"@context": "https://schema.org",
+					"@type": "SoftwareApplication",
+					name: entry.name,
+					applicationCategory: "DeveloperApplication",
+					operatingSystem: "Linux, Kubernetes, Cloud, On-premise",
+					description: entry.summary,
+					url: `${SITE.url}${path}`,
+					publisher: {
+						"@type": "Organization",
+						name: SITE.name,
+						url: SITE.url,
+					},
+				};
+
 		return {
-			...seo({
-				title: `${product.name} — Viteloop`,
-				description: product.summary,
-				path,
-			}),
+			...seo({ title, description, path }),
 			scripts: [
 				{
 					type: "application/ld+json",
-					children: JSON.stringify({
-						"@context": "https://schema.org",
-						"@type": "SoftwareApplication",
-						name: product.name,
-						applicationCategory: "DeveloperApplication",
-						operatingSystem: "Linux, Kubernetes, Cloud, On-premise",
-						description: product.summary,
-						url: `${SITE.url}${path}`,
-						publisher: {
-							"@type": "Organization",
-							name: SITE.name,
-							url: SITE.url,
-						},
-					}),
+					children: JSON.stringify(primarySchema),
 				},
-				{
-					type: "application/ld+json",
-					children: JSON.stringify({
-						"@context": "https://schema.org",
-						"@type": "BreadcrumbList",
-						itemListElement: [
+				breadcrumbScript([
+					{ name: "Home", path: "/" },
+					{ name: "Products", path: "/products" },
+					{ name: entry.name, path },
+				]),
+				...(capability && capability.faqs.length > 0
+					? [
 							{
-								"@type": "ListItem",
-								position: 1,
-								name: "Home",
-								item: SITE.url,
+								type: "application/ld+json",
+								children: JSON.stringify({
+									"@context": "https://schema.org",
+									"@type": "FAQPage",
+									mainEntity: capability.faqs.map((f) => ({
+										"@type": "Question",
+										name: f.q,
+										acceptedAnswer: { "@type": "Answer", text: f.a },
+									})),
+								}),
 							},
-							{
-								"@type": "ListItem",
-								position: 2,
-								name: "Products",
-								item: `${SITE.url}/products`,
-							},
-							{
-								"@type": "ListItem",
-								position: 3,
-								name: product.name,
-								item: `${SITE.url}${path}`,
-							},
-						],
-					}),
-				},
+						]
+					: []),
 			],
 		};
 	},
@@ -94,9 +113,9 @@ function ProductVisual({ kind }: { kind: string }) {
 
 function ProductDetail() {
 	const { slug } = Route.useParams();
-	const product = getProduct(slug);
+	const entry = getCatalogEntry(slug);
 
-	if (!product) {
+	if (!entry) {
 		return (
 			<Container className="flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">
 				<p className="kicker">Not found</p>
@@ -110,8 +129,13 @@ function ProductDetail() {
 		);
 	}
 
-	const Icon = product.icon;
-	const others = PRODUCTS.filter((p) => p.slug !== product.slug);
+	const Icon = entry.icon;
+	const capability = isCapability(entry) ? entry : null;
+	const related: (Product | Capability)[] = capability
+		? capability.related
+				.map(getCatalogEntry)
+				.filter((e): e is Product | Capability => Boolean(e))
+		: PRODUCTS.filter((p) => p.slug !== entry.slug);
 
 	return (
 		<>
@@ -129,13 +153,13 @@ function ProductDetail() {
 							<Icon className="h-7 w-7" strokeWidth={1.6} />
 						</span>
 						<h1 className="mt-5 text-balance text-4xl font-bold tracking-tight text-fg sm:text-5xl">
-							{product.name}
+							{entry.name}
 						</h1>
 						<p className="mt-3 text-lg font-medium text-accent-2">
-							{product.tagline}
+							{entry.tagline}
 						</p>
 						<p className="mt-5 max-w-xl text-lg leading-relaxed text-fg-muted">
-							{product.summary}
+							{entry.summary}
 						</p>
 						<div className="mt-8 flex flex-wrap gap-3">
 							<Link to="/contact" className={buttonVariants()}>
@@ -150,14 +174,14 @@ function ProductDetail() {
 						</div>
 					</div>
 					<div className="glass relative overflow-hidden rounded-2xl p-6">
-						<ProductVisual kind={product.visual} />
+						<ProductVisual kind={entry.visual} />
 					</div>
 				</Container>
 			</section>
 
 			<Container>
 				<div className="grid gap-4 py-12 sm:grid-cols-3">
-					{product.highlights.map((h) => (
+					{entry.highlights.map((h) => (
 						<div key={h.label} className="glass rounded-2xl p-6">
 							<p className="font-mono text-3xl font-semibold text-fg">
 								{h.value}
@@ -174,7 +198,7 @@ function ProductDetail() {
 						Capabilities
 					</h2>
 					<div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-						{product.features.map((f) => (
+						{entry.features.map((f) => (
 							<div
 								key={f}
 								className="glass flex items-start gap-3 rounded-xl p-5"
@@ -190,34 +214,62 @@ function ProductDetail() {
 				</Container>
 			</Section>
 
-			<Section className="border-t border-line">
-				<Container>
-					<h2 className="text-2xl font-semibold tracking-tight text-fg sm:text-3xl">
-						Works with the rest of the platform
-					</h2>
-					<div className="mt-8 flex flex-wrap gap-3">
-						{others.map((p) => {
-							const OtherIcon = p.icon;
-							return (
-								<Link
-									key={p.slug}
-									{...productLinkProps(p.slug)}
-									className="glass card-hover inline-flex items-center gap-2.5 rounded-full px-4 py-2.5 text-sm font-medium text-fg"
+			{capability && capability.faqs.length > 0 && (
+				<Section className="border-t border-line">
+					<Container>
+						<h2 className="text-2xl font-semibold tracking-tight text-fg sm:text-3xl">
+							Frequently asked questions
+						</h2>
+						<div className="mt-8 flex max-w-3xl flex-col gap-3">
+							{capability.faqs.map((f) => (
+								<details
+									key={f.q}
+									className="glass group rounded-2xl px-5 py-4 open:pb-5"
 								>
-									<OtherIcon
-										className="h-4 w-4 text-accent-2"
-										strokeWidth={1.7}
-									/>
-									{p.name}
-								</Link>
-							);
-						})}
-					</div>
-				</Container>
-			</Section>
+									<summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display font-semibold text-fg [&::-webkit-details-marker]:hidden">
+										{f.q}
+										<ChevronDown className="h-5 w-5 shrink-0 text-fg-faint transition-transform duration-200 group-open:rotate-180" />
+									</summary>
+									<p className="mt-3 text-sm leading-relaxed text-fg-muted">
+										{f.a}
+									</p>
+								</details>
+							))}
+						</div>
+					</Container>
+				</Section>
+			)}
+
+			{related.length > 0 && (
+				<Section className="border-t border-line">
+					<Container>
+						<h2 className="text-2xl font-semibold tracking-tight text-fg sm:text-3xl">
+							Works with the rest of the platform
+						</h2>
+						<div className="mt-8 flex flex-wrap gap-3">
+							{related.map((p) => {
+								const OtherIcon = p.icon;
+								return (
+									<Link
+										key={p.slug}
+										{...productLinkProps(p.slug)}
+										className="glass card-hover inline-flex items-center gap-2.5 rounded-full px-4 py-2.5 text-sm font-medium text-fg"
+									>
+										<OtherIcon
+											className="h-4 w-4 text-accent-2"
+											strokeWidth={1.7}
+										/>
+										{p.name}
+									</Link>
+								);
+							})}
+						</div>
+					</Container>
+				</Section>
+			)}
 
 			<CTABand
-				heading={`Deploy ${product.name} in your environment.`}
+				heading={`Deploy ${entry.name} in your environment.`}
 				subtext="Request a technical demo and see it running in a stack like yours."
 			/>
 		</>
