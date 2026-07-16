@@ -180,12 +180,13 @@ export const getProduct = (slug: string): Product | undefined =>
 	PRODUCTS.find((p) => p.slug === slug);
 
 /**
- * Link target for a product. CDN has a dedicated static route
- * (`/products/cdn`); every other product uses the shared `/products/$slug`
- * template. Linking CDN to its canonical route avoids the router's
- * "matched a different route" ambiguity warning.
+ * Link target for a product. CDN and OTT have dedicated static routes
+ * (`/products/cdn`, `/products/ott`); every other product uses the shared
+ * `/products/$slug` template. Linking to a canonical dedicated route avoids
+ * the router's "matched a different route" ambiguity warning.
  */
-export const productLinkProps = (slug: string) =>
-	slug === "cdn"
-		? ({ to: "/products/cdn" } as const)
-		: ({ to: "/products/$slug", params: { slug } } as const);
+export const productLinkProps = (slug: string) => {
+	if (slug === "cdn") return { to: "/products/cdn" } as const;
+	if (slug === "ott") return { to: "/products/ott" } as const;
+	return { to: "/products/$slug", params: { slug } } as const;
+};

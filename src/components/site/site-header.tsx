@@ -1,5 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, Menu, X } from "lucide-react";
+import {
+	ChevronDown,
+	type LucideIcon,
+	Menu,
+	ShoppingBag,
+	X,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import { Container } from "#/components/primitives/container";
 import { Logo } from "#/components/site/logo";
@@ -8,6 +14,31 @@ import { buttonVariants } from "#/components/ui/button";
 import { HEADER_NAV } from "#/data/nav";
 import { PRODUCTS, productLinkProps } from "#/data/products";
 import { cn } from "#/lib/utils";
+
+/** Shared icon + name + tagline content for a product mega-menu item. */
+function ProductMenuContent({
+	icon: Icon,
+	name,
+	tagline,
+}: {
+	icon: LucideIcon;
+	name: string;
+	tagline: string;
+}) {
+	return (
+		<>
+			<span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-line bg-bg-soft text-accent-2">
+				<Icon className="h-[18px] w-[18px]" strokeWidth={1.7} />
+			</span>
+			<span className="min-w-0">
+				<span className="block text-sm font-semibold text-fg">{name}</span>
+				<span className="block text-xs leading-snug text-fg-muted">
+					{tagline}
+				</span>
+			</span>
+		</>
+	);
+}
 
 export function SiteHeader() {
 	const [scrolled, setScrolled] = useState(false);
@@ -58,31 +89,29 @@ export function SiteHeader() {
 								<div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
 									<div className="glass w-[min(95vw,880px)] rounded-2xl p-3">
 										<div className="grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-3">
-											{PRODUCTS.map((p) => {
-												const Icon = p.icon;
-												return (
-													<Link
-														key={p.slug}
-														{...productLinkProps(p.slug)}
-														className="group/item flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-fg/5"
-													>
-														<span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-line bg-bg-soft text-accent-2">
-															<Icon
-																className="h-[18px] w-[18px]"
-																strokeWidth={1.7}
-															/>
-														</span>
-														<span className="min-w-0">
-															<span className="block text-sm font-semibold text-fg">
-																{p.name}
-															</span>
-															<span className="block text-xs leading-snug text-fg-muted">
-																{p.tagline}
-															</span>
-														</span>
-													</Link>
-												);
-											})}
+											{PRODUCTS.map((p) => (
+												<Link
+													key={p.slug}
+													{...productLinkProps(p.slug)}
+													className="group/item flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-fg/5"
+												>
+													<ProductMenuContent
+														icon={p.icon}
+														name={p.name}
+														tagline={p.tagline}
+													/>
+												</Link>
+											))}
+											<Link
+												to="/products/commerce"
+												className="group/item flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-fg/5"
+											>
+												<ProductMenuContent
+													icon={ShoppingBag}
+													name="ViteLoop Commerce"
+													tagline="AI-powered e-commerce platform."
+												/>
+											</Link>
 										</div>
 									</div>
 								</div>
@@ -152,6 +181,13 @@ export function SiteHeader() {
 									{p.name}
 								</Link>
 							))}
+							<Link
+								to="/products/commerce"
+								onClick={() => setMobileOpen(false)}
+								className="rounded-lg px-3 py-2 text-sm text-fg-muted hover:bg-fg/5 hover:text-fg"
+							>
+								ViteLoop Commerce
+							</Link>
 						</div>
 						<Link
 							to="/contact"

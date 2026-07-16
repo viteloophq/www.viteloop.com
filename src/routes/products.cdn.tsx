@@ -124,7 +124,7 @@ function CdnHero() {
 				<div>
 					<Link
 						to="/products"
-						className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-fg-faint transition-colors hover:text-fg"
+						className="flex w-fit items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-fg-faint transition-colors hover:text-fg"
 					>
 						<ArrowLeft className="h-3.5 w-3.5" /> Products
 					</Link>

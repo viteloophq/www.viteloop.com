@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, ChevronDown } from "lucide-react";
+import type { ComponentType } from "react";
 import { Container } from "#/components/primitives/container";
 import { Section } from "#/components/primitives/section";
 import { CTABand } from "#/components/sections/cta-band";
@@ -7,6 +8,12 @@ import { buttonVariants } from "#/components/ui/button";
 import { ArchDiagram } from "#/components/visuals/arch-diagram";
 import { EdgeNetwork } from "#/components/visuals/edge-network";
 import { GridBackdrop } from "#/components/visuals/grid-backdrop";
+import {
+	DrmMockup,
+	LmsMockup,
+	StreamMockup,
+	TranscoderMockup,
+} from "#/components/visuals/product-mockups";
 import { RegionMap } from "#/components/visuals/region-map";
 import {
 	type Capability,
@@ -111,6 +118,16 @@ function ProductVisual({ kind }: { kind: string }) {
 	return <EdgeNetwork className="mx-auto max-w-[460px]" />;
 }
 
+/** Product-specific hero mockups, keyed by slug. */
+const PRODUCT_MOCKUPS: Partial<
+	Record<string, ComponentType<{ className?: string }>>
+> = {
+	stream: StreamMockup,
+	drm: DrmMockup,
+	transcoder: TranscoderMockup,
+	lms: LmsMockup,
+};
+
 function ProductDetail() {
 	const { slug } = Route.useParams();
 	const entry = getCatalogEntry(slug);
@@ -136,6 +153,7 @@ function ProductDetail() {
 				.map(getCatalogEntry)
 				.filter((e): e is Product | Capability => Boolean(e))
 		: PRODUCTS.filter((p) => p.slug !== entry.slug);
+	const Mockup = PRODUCT_MOCKUPS[entry.slug];
 
 	return (
 		<>
@@ -173,9 +191,13 @@ function ProductDetail() {
 							</Link>
 						</div>
 					</div>
-					<div className="glass relative overflow-hidden rounded-2xl p-6">
-						<ProductVisual kind={entry.visual} />
-					</div>
+					{Mockup ? (
+						<Mockup className="w-full max-w-[520px] lg:ml-auto" />
+					) : (
+						<div className="glass relative overflow-hidden rounded-2xl p-6">
+							<ProductVisual kind={entry.visual} />
+						</div>
+					)}
 				</Container>
 			</section>
 

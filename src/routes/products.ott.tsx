@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Check, ChevronDown } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
 import { Container } from "#/components/primitives/container";
 import { Reveal } from "#/components/primitives/reveal";
 import {
@@ -10,28 +10,27 @@ import {
 } from "#/components/primitives/section";
 import { CTABand } from "#/components/sections/cta-band";
 import { buttonVariants } from "#/components/ui/button";
-import { CommerceMockup } from "#/components/visuals/commerce-mockup";
 import { GlowMesh } from "#/components/visuals/glow-mesh";
 import { GridBackdrop } from "#/components/visuals/grid-backdrop";
+import { OttMockup } from "#/components/visuals/ott-mockup";
 import {
-	COMMERCE_DIFFERENCE,
-	COMMERCE_FAQ,
-	COMMERCE_FEATURES,
-	COMMERCE_HERO,
-	COMMERCE_SEO,
-	COMMERCE_WHY,
-} from "#/data/commerce";
+	OTT_AUDIENCE,
+	OTT_FAQ,
+	OTT_FEATURES,
+	OTT_HERO,
+	OTT_SEO,
+} from "#/data/ott";
 import { SITE } from "#/data/site";
 import { breadcrumbScript, seo } from "#/lib/seo";
 
-const PATH = "/products/commerce";
+const PATH = "/products/ott";
 
-export const Route = createFileRoute("/products/commerce")({
-	component: CommercePage,
+export const Route = createFileRoute("/products/ott")({
+	component: OttPage,
 	head: () => ({
 		...seo({
-			title: COMMERCE_SEO.title,
-			description: COMMERCE_SEO.description,
+			title: OTT_SEO.title,
+			description: OTT_SEO.description,
 			path: PATH,
 		}),
 		scripts: [
@@ -40,10 +39,10 @@ export const Route = createFileRoute("/products/commerce")({
 				children: JSON.stringify({
 					"@context": "https://schema.org",
 					"@type": "SoftwareApplication",
-					name: "ViteLoop Commerce",
-					applicationCategory: "BusinessApplication",
-					operatingSystem: "Web",
-					description: COMMERCE_SEO.description,
+					name: "Viteloop OTT",
+					applicationCategory: "MultimediaApplication",
+					operatingSystem: "iOS, Android, Android TV, Fire TV, Roku, Web",
+					description: OTT_SEO.description,
 					url: `${SITE.url}${PATH}`,
 					publisher: {
 						"@type": "Organization",
@@ -55,14 +54,14 @@ export const Route = createFileRoute("/products/commerce")({
 			breadcrumbScript([
 				{ name: "Home", path: "/" },
 				{ name: "Products", path: "/products" },
-				{ name: "Commerce", path: PATH },
+				{ name: "OTT", path: PATH },
 			]),
 			{
 				type: "application/ld+json",
 				children: JSON.stringify({
 					"@context": "https://schema.org",
 					"@type": "FAQPage",
-					mainEntity: COMMERCE_FAQ.map((f) => ({
+					mainEntity: OTT_FAQ.map((f) => ({
 						"@type": "Question",
 						name: f.q,
 						acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -73,23 +72,22 @@ export const Route = createFileRoute("/products/commerce")({
 	}),
 });
 
-function CommercePage() {
+function OttPage() {
 	return (
 		<>
-			<CommerceHero />
-			<WhySection />
+			<OttHero />
 			<FeaturesSection />
-			<DifferenceSection />
+			<AudienceSection />
 			<FaqSection />
 			<CTABand
-				heading="Ready to launch your store?"
-				subtext="Tell us about your business and we'll show you ViteLoop Commerce running on infrastructure built for your biggest campaigns."
+				heading="Launch your streaming service."
+				subtext="Tell us about your content and audience — we'll show you Viteloop OTT running under your brand."
 			/>
 		</>
 	);
 }
 
-function CommerceHero() {
+function OttHero() {
 	return (
 		<section className="relative overflow-hidden border-b border-line">
 			<GlowMesh className="absolute inset-0 opacity-80" />
@@ -102,15 +100,15 @@ function CommerceHero() {
 					>
 						<ArrowLeft className="h-3.5 w-3.5" /> Products
 					</Link>
-					<p className="kicker mt-6">{COMMERCE_HERO.kicker}</p>
+					<p className="kicker mt-6">{OTT_HERO.kicker}</p>
 					<h1 className="mt-4 text-balance text-4xl font-bold tracking-tight text-fg sm:text-5xl">
-						{COMMERCE_HERO.title}
+						{OTT_HERO.title}
 					</h1>
 					<p className="mt-5 max-w-xl text-lg leading-relaxed text-fg-muted">
-						{COMMERCE_HERO.lead}
+						{OTT_HERO.lead}
 					</p>
 					<div className="mt-7 flex flex-wrap gap-2">
-						{COMMERCE_HERO.badges.map((b) => (
+						{OTT_HERO.badges.map((b) => (
 							<span
 								key={b}
 								className="rounded-full border border-line bg-bg-soft px-3 py-1 font-mono text-xs text-fg-muted"
@@ -123,41 +121,17 @@ function CommerceHero() {
 						<Link to="/contact" className={buttonVariants()}>
 							Request Demo <ArrowRight className="h-4 w-4" />
 						</Link>
-						<Link to="/docs" className={buttonVariants({ variant: "outline" })}>
-							View Documentation
+						<Link
+							to="/contact"
+							className={buttonVariants({ variant: "outline" })}
+						>
+							Talk to Sales
 						</Link>
 					</div>
 				</div>
-				<CommerceMockup className="w-full max-w-[560px] lg:ml-auto" />
+				<OttMockup className="w-full max-w-[520px] lg:ml-auto" />
 			</Container>
 		</section>
-	);
-}
-
-function WhySection() {
-	return (
-		<Section className="border-t border-line">
-			<Container>
-				<div className="max-w-2xl">
-					<Kicker>Why ViteLoop Commerce</Kicker>
-					<SectionHeading>Everything you need to sell online.</SectionHeading>
-				</div>
-				<div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-					{COMMERCE_WHY.map((point) => (
-						<div
-							key={point}
-							className="glass flex items-center gap-3 rounded-xl px-5 py-4"
-						>
-							<Check
-								className="h-5 w-5 shrink-0 text-accent-2"
-								strokeWidth={2}
-							/>
-							<span className="text-sm font-medium text-fg">{point}</span>
-						</div>
-					))}
-				</div>
-			</Container>
-		</Section>
 	);
 }
 
@@ -166,16 +140,15 @@ function FeaturesSection() {
 		<Section className="border-t border-line">
 			<Container>
 				<div className="max-w-2xl">
-					<Kicker>Key features</Kicker>
-					<SectionHeading>Built to sell, ship, and scale.</SectionHeading>
+					<Kicker>Everything you need to launch</Kicker>
+					<SectionHeading>A complete platform, built in.</SectionHeading>
 					<Lead>
-						From AI-generated storefronts to fraud prevention and server-side
-						analytics — the tools to run a modern store, on infrastructure that
-						keeps up.
+						All the tools and features to run a modern streaming service — ready
+						from day one.
 					</Lead>
 				</div>
 				<div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-					{COMMERCE_FEATURES.map((f) => {
+					{OTT_FEATURES.map((f) => {
 						const Icon = f.icon;
 						return (
 							<Reveal key={f.title}>
@@ -199,26 +172,27 @@ function FeaturesSection() {
 	);
 }
 
-function DifferenceSection() {
+function AudienceSection() {
 	return (
 		<Section className="border-t border-line">
 			<Container>
-				<div className="glass rounded-3xl p-8 md:p-12">
-					<div className="max-w-3xl">
-						<Kicker>{COMMERCE_DIFFERENCE.kicker}</Kicker>
-						<SectionHeading>{COMMERCE_DIFFERENCE.title}</SectionHeading>
-						<Lead>{COMMERCE_DIFFERENCE.lead}</Lead>
-					</div>
-					<div className="mt-8 flex flex-wrap gap-3">
-						{COMMERCE_DIFFERENCE.punchlines.map((p) => (
-							<span
-								key={p}
-								className="rounded-full border border-line bg-bg-soft px-4 py-2 text-sm font-medium text-fg"
-							>
-								{p}
-							</span>
-						))}
-					</div>
+				<div className="max-w-2xl">
+					<Kicker>Who it's for</Kicker>
+					<SectionHeading>
+						Built for content owners who want control.
+					</SectionHeading>
+				</div>
+				<div className="mt-10 grid gap-4 sm:grid-cols-3">
+					{OTT_AUDIENCE.map((a) => (
+						<div key={a.title} className="glass rounded-2xl p-6">
+							<h3 className="font-display text-lg font-semibold text-fg">
+								{a.title}
+							</h3>
+							<p className="mt-2 text-sm leading-relaxed text-fg-muted">
+								{a.blurb}
+							</p>
+						</div>
+					))}
 				</div>
 			</Container>
 		</Section>
@@ -234,7 +208,7 @@ function FaqSection() {
 					<SectionHeading>Questions, answered.</SectionHeading>
 				</div>
 				<div className="mx-auto mt-10 flex max-w-3xl flex-col gap-3">
-					{COMMERCE_FAQ.map((f) => (
+					{OTT_FAQ.map((f) => (
 						<details
 							key={f.q}
 							className="glass group rounded-2xl px-5 py-4 open:pb-5"
