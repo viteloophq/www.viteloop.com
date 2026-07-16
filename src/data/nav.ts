@@ -27,6 +27,7 @@ export const FOOTER_COLUMNS: NavGroup[] = [
 		title: "Product",
 		links: [
 			{ label: "Products", to: "/products" },
+			{ label: "Commerce", to: "/products/commerce" },
 			{ label: "Solutions", to: "/solutions" },
 			{ label: "Status", to: "/status" },
 		],

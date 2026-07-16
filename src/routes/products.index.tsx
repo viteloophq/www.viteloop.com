@@ -1,11 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, ShoppingBag } from "lucide-react";
 import { Container } from "#/components/primitives/container";
 import { PageHero } from "#/components/primitives/page-hero";
 import { Section } from "#/components/primitives/section";
 import { CTABand } from "#/components/sections/cta-band";
 import { ProductGrid } from "#/components/sections/product-grid";
+import { buttonVariants } from "#/components/ui/button";
 import { CAPABILITIES } from "#/data/capabilities";
 import { breadcrumbScript, seo } from "#/lib/seo";
+import { cn } from "#/lib/utils";
 
 export const Route = createFileRoute("/products/")({
 	component: ProductsPage,
@@ -37,6 +40,30 @@ function ProductsPage() {
 				your environment, under your control.
 			</PageHero>
 			<ProductGrid variant="detailed" heading={false} />
+
+			<Container className="pt-2">
+				<Link
+					to="/products/commerce"
+					className="glass card-hover flex flex-col gap-6 rounded-3xl border-accent/35 p-8 md:flex-row md:items-center md:justify-between md:p-10"
+				>
+					<div className="max-w-2xl">
+						<span className="grid h-11 w-11 place-items-center rounded-xl border border-line bg-bg-soft text-accent-2">
+							<ShoppingBag className="h-5 w-5" strokeWidth={1.7} />
+						</span>
+						<h2 className="mt-5 text-2xl font-semibold tracking-tight text-fg sm:text-3xl">
+							ViteLoop Commerce — sell online at scale.
+						</h2>
+						<p className="mt-3 text-base leading-relaxed text-fg-muted">
+							A full e-commerce platform: AI store builder, social commerce,
+							fraud prevention, and a global CDN — built to stay fast through
+							your biggest campaigns.
+						</p>
+					</div>
+					<span className={cn(buttonVariants(), "shrink-0")}>
+						Explore Commerce <ArrowRight className="h-4 w-4" />
+					</span>
+				</Link>
+			</Container>
 
 			<Section className="border-t border-line">
 				<Container>
