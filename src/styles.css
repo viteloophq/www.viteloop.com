@@ -419,6 +419,11 @@ code:not(pre code) {
   * {
     border-color: var(--line);
   }
+  /* Tailwind v4 Preflight drops the default button pointer cursor — restore it. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
   :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
