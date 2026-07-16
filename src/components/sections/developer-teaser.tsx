@@ -30,7 +30,7 @@ export function DeveloperTeaser() {
 					</div>
 				</div>
 
-				<div className="relative">
+				<div className="relative min-w-0">
 					<CornerTicks />
 					<div className="glass overflow-hidden rounded-2xl">
 						<div className="flex items-center gap-2 border-b border-line px-4 py-3">
