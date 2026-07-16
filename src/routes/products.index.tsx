@@ -2,17 +2,24 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "#/components/primitives/page-hero";
 import { CTABand } from "#/components/sections/cta-band";
 import { ProductGrid } from "#/components/sections/product-grid";
-import { seo } from "#/lib/seo";
+import { breadcrumbScript, seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/products/")({
 	component: ProductsPage,
-	head: () =>
-		seo({
+	head: () => ({
+		...seo({
 			title: "Products — Viteloop",
 			description:
 				"Composable infrastructure products — CDN, Stream, Transcoder, DRM, OTT, and LMS — that you deploy and own.",
 			path: "/products",
 		}),
+		scripts: [
+			breadcrumbScript([
+				{ name: "Home", path: "/" },
+				{ name: "Products", path: "/products" },
+			]),
+		],
+	}),
 });
 
 function ProductsPage() {

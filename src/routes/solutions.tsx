@@ -12,17 +12,24 @@ import {
 import { CTABand } from "#/components/sections/cta-band";
 import { CUSTOMERS } from "#/data/customers";
 import { SOLUTIONS } from "#/data/solutions";
-import { seo } from "#/lib/seo";
+import { breadcrumbScript, seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/solutions")({
 	component: SolutionsPage,
-	head: () =>
-		seo({
+	head: () => ({
+		...seo({
 			title: "Solutions — Viteloop",
 			description:
 				"Viteloop powers hosting providers, ISPs, telecoms, enterprises, governments, streaming platforms, and more — software to build and own internet infrastructure.",
 			path: "/solutions",
 		}),
+		scripts: [
+			breadcrumbScript([
+				{ name: "Home", path: "/" },
+				{ name: "Solutions", path: "/solutions" },
+			]),
+		],
+	}),
 });
 
 const VERTICALS = [
@@ -32,7 +39,11 @@ const VERTICALS = [
 		title: "OTT streaming",
 		blurb:
 			"Launch a branded VOD and live service with web, mobile, and TV apps, multi-DRM, and monetization — built on Viteloop Stream, CDN, and DRM.",
-		points: ["Web · Mobile · TV apps", "Multi-DRM & watermarking", "SVOD · TVOD · AVOD"],
+		points: [
+			"Web · Mobile · TV apps",
+			"Multi-DRM & watermarking",
+			"SVOD · TVOD · AVOD",
+		],
 	},
 	{
 		slug: "lms",
@@ -138,7 +149,9 @@ function SolutionsPage() {
 									<h3 className="mt-5 font-display text-xl font-semibold text-fg">
 										{v.title}
 									</h3>
-									<p className="mt-2 leading-relaxed text-fg-muted">{v.blurb}</p>
+									<p className="mt-2 leading-relaxed text-fg-muted">
+										{v.blurb}
+									</p>
 									<ul className="mt-5 flex flex-wrap gap-2">
 										{v.points.map((p) => (
 											<li

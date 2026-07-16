@@ -43,3 +43,23 @@ export function seo({
 		links: [{ rel: "canonical", href: url }],
 	};
 }
+
+/**
+ * Builds a JSON-LD BreadcrumbList `<script>` for a route's `head()`. Pass the
+ * trail from the site root, e.g. `[{ name: "Home", path: "/" }, …]`.
+ */
+export function breadcrumbScript(trail: { name: string; path: string }[]) {
+	return {
+		type: "application/ld+json",
+		children: JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			itemListElement: trail.map((crumb, i) => ({
+				"@type": "ListItem",
+				position: i + 1,
+				name: crumb.name,
+				item: `${SITE.url}${crumb.path}`,
+			})),
+		}),
+	};
+}

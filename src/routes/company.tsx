@@ -12,17 +12,24 @@ import { Container } from "#/components/primitives/container";
 import { PageHero } from "#/components/primitives/page-hero";
 import { Section, SectionHeading } from "#/components/primitives/section";
 import { CTABand } from "#/components/sections/cta-band";
-import { seo } from "#/lib/seo";
+import { breadcrumbScript, seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/company")({
 	component: CompanyPage,
-	head: () =>
-		seo({
+	head: () => ({
+		...seo({
 			title: "Company — Viteloop",
 			description:
 				"Viteloop builds the infrastructure software powering modern cloud platforms. We don't operate a public cloud — we help you operate yours.",
 			path: "/company",
 		}),
+		scripts: [
+			breadcrumbScript([
+				{ name: "Home", path: "/" },
+				{ name: "Company", path: "/company" },
+			]),
+		],
+	}),
 });
 
 const VALUES: { icon: LucideIcon; title: string; blurb: string }[] = [
@@ -63,7 +70,7 @@ const VALUES: { icon: LucideIcon; title: string; blurb: string }[] = [
 ];
 
 const STATS = [
-	{ value: "8", label: "Infrastructure products" },
+	{ value: "6", label: "Infrastructure products" },
 	{ value: "Any", label: "Cloud or bare metal" },
 	{ value: "10+", label: "Industries served" },
 	{ value: "API-first", label: "From day one" },

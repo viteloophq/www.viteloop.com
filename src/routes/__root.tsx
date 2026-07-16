@@ -52,6 +52,14 @@ export const Route = createRootRoute({
 			},
 			{ property: "og:description", content: SITE.description },
 			{ property: "og:image", content: `${SITE.url}/og.png` },
+			{ property: "og:image:width", content: "1200" },
+			{ property: "og:image:height", content: "630" },
+			{
+				property: "og:image:alt",
+				content:
+					"Viteloop — infrastructure software for private CDN, edge, and media platforms",
+			},
+			{ property: "og:locale", content: "en_US" },
 			{ name: "twitter:card", content: "summary_large_image" },
 			{ name: "twitter:image", content: `${SITE.url}/og.png` },
 		],

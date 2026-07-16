@@ -13,17 +13,24 @@ import { PageHero } from "#/components/primitives/page-hero";
 import { Section, SectionHeading } from "#/components/primitives/section";
 import { CTABand } from "#/components/sections/cta-band";
 import { buttonVariants } from "#/components/ui/button";
-import { seo } from "#/lib/seo";
+import { breadcrumbScript, seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/developers")({
 	component: DevelopersPage,
-	head: () =>
-		seo({
+	head: () => ({
+		...seo({
 			title: "Developers — Viteloop",
 			description:
 				"Viteloop is API-first: REST APIs, SDKs, a CLI, webhooks, and a Terraform provider for automating every part of your infrastructure.",
 			path: "/developers",
 		}),
+		scripts: [
+			breadcrumbScript([
+				{ name: "Home", path: "/" },
+				{ name: "Developers", path: "/developers" },
+			]),
+		],
+	}),
 });
 
 const CAPABILITIES: { icon: LucideIcon; title: string; blurb: string }[] = [

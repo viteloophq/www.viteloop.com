@@ -14,17 +14,24 @@ import { PageHero } from "#/components/primitives/page-hero";
 import { Section, SectionHeading } from "#/components/primitives/section";
 import { Badge } from "#/components/ui/badge";
 import { buttonVariants } from "#/components/ui/button";
-import { seo } from "#/lib/seo";
+import { breadcrumbScript, seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/careers")({
 	component: CareersPage,
-	head: () =>
-		seo({
+	head: () => ({
+		...seo({
 			title: "Careers — Viteloop",
 			description:
 				"Join Viteloop and build the software behind the next generation of internet infrastructure. Remote-first, engineering-led.",
 			path: "/careers",
 		}),
+		scripts: [
+			breadcrumbScript([
+				{ name: "Home", path: "/" },
+				{ name: "Careers", path: "/careers" },
+			]),
+		],
+	}),
 });
 
 const PERKS: { icon: LucideIcon; title: string }[] = [

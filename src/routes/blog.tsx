@@ -4,17 +4,24 @@ import { Container } from "#/components/primitives/container";
 import { PageHero } from "#/components/primitives/page-hero";
 import { Section } from "#/components/primitives/section";
 import { Badge } from "#/components/ui/badge";
-import { seo } from "#/lib/seo";
+import { breadcrumbScript, seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/blog")({
 	component: BlogPage,
-	head: () =>
-		seo({
+	head: () => ({
+		...seo({
 			title: "Blog — Viteloop",
 			description:
 				"Engineering deep-dives, product updates, and notes on building internet infrastructure from the Viteloop team.",
 			path: "/blog",
 		}),
+		scripts: [
+			breadcrumbScript([
+				{ name: "Home", path: "/" },
+				{ name: "Blog", path: "/blog" },
+			]),
+		],
+	}),
 });
 
 interface Post {

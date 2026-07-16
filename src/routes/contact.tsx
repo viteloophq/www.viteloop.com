@@ -7,18 +7,25 @@ import { Button } from "#/components/ui/button";
 import { CUSTOMERS } from "#/data/customers";
 import { PRODUCTS } from "#/data/products";
 import { SITE } from "#/data/site";
-import { seo } from "#/lib/seo";
+import { breadcrumbScript, seo } from "#/lib/seo";
 import { cn } from "#/lib/utils";
 
 export const Route = createFileRoute("/contact")({
 	component: ContactPage,
-	head: () =>
-		seo({
+	head: () => ({
+		...seo({
 			title: "Request a Demo — Viteloop",
 			description:
 				"Request a technical demo of Viteloop and talk to our engineering team about deploying infrastructure software in your environment.",
 			path: "/contact",
 		}),
+		scripts: [
+			breadcrumbScript([
+				{ name: "Home", path: "/" },
+				{ name: "Contact", path: "/contact" },
+			]),
+		],
+	}),
 });
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

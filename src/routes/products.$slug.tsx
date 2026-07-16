@@ -18,11 +18,16 @@ export const Route = createFileRoute("/products/$slug")({
 	head: ({ params }) => {
 		const product = getProduct(params.slug);
 		if (!product) {
-			return seo({
+			const base = seo({
 				title: "Product not found — Viteloop",
 				description: "The requested Viteloop product could not be found.",
 				path: `/products/${params.slug}`,
 			});
+			// Keep soft-404s out of the index.
+			return {
+				...base,
+				meta: [...base.meta, { name: "robots", content: "noindex, follow" }],
+			};
 		}
 		const path = `/products/${product.slug}`;
 		return {

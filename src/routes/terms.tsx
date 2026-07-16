@@ -1,16 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Container } from "#/components/primitives/container";
-import { seo } from "#/lib/seo";
+import { breadcrumbScript, seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/terms")({
 	component: TermsPage,
-	head: () =>
-		seo({
+	head: () => ({
+		...seo({
 			title: "Terms of Service — Viteloop",
 			description:
 				"The terms governing your access to and use of Viteloop's website, software, and related services.",
 			path: "/terms",
 		}),
+		scripts: [
+			breadcrumbScript([
+				{ name: "Home", path: "/" },
+				{ name: "Terms", path: "/terms" },
+			]),
+		],
+	}),
 });
 
 function TermsPage() {

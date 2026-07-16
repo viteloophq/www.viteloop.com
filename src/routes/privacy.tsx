@@ -1,16 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Container } from "#/components/primitives/container";
-import { seo } from "#/lib/seo";
+import { breadcrumbScript, seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/privacy")({
 	component: PrivacyPage,
-	head: () =>
-		seo({
+	head: () => ({
+		...seo({
 			title: "Privacy Policy — Viteloop",
 			description:
 				"How Viteloop collects, uses, and protects information — and why your self-hosted deployments keep your data under your control.",
 			path: "/privacy",
 		}),
+		scripts: [
+			breadcrumbScript([
+				{ name: "Home", path: "/" },
+				{ name: "Privacy", path: "/privacy" },
+			]),
+		],
+	}),
 });
 
 function PrivacyPage() {

@@ -1,17 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Boxes, Rocket, Search, Terminal } from "lucide-react";
 import { Container } from "#/components/primitives/container";
-import { seo } from "#/lib/seo";
+import { breadcrumbScript, seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/docs")({
 	component: DocsPage,
-	head: () =>
-		seo({
+	head: () => ({
+		...seo({
 			title: "Documentation — Viteloop",
 			description:
 				"Guides, references, and API docs for deploying and operating Viteloop infrastructure software.",
 			path: "/docs",
 		}),
+		scripts: [
+			breadcrumbScript([
+				{ name: "Home", path: "/" },
+				{ name: "Documentation", path: "/docs" },
+			]),
+		],
+	}),
 });
 
 const DOCS_NAV = [
