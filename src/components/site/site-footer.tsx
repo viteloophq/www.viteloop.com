@@ -3,6 +3,7 @@ import { Container } from "#/components/primitives/container";
 import { Logo } from "#/components/site/logo";
 import { FOOTER_COLUMNS } from "#/data/nav";
 import { SITE } from "#/data/site";
+import { CONSENT_OPEN_EVENT } from "#/lib/consent";
 
 export function SiteFooter() {
 	return (
@@ -52,9 +53,20 @@ export function SiteFooter() {
 				</div>
 
 				<div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-line pt-8 sm:flex-row sm:items-center">
-					<p className="text-sm text-fg-faint">
-						© 2026 {SITE.name}. All rights reserved.
-					</p>
+					<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
+						<p className="text-sm text-fg-faint">
+							© 2026 {SITE.name}. All rights reserved.
+						</p>
+						<button
+							type="button"
+							onClick={() =>
+								window.dispatchEvent(new Event(CONSENT_OPEN_EVENT))
+							}
+							className="text-left text-sm text-fg-faint transition-colors hover:text-fg"
+						>
+							Cookie settings
+						</button>
+					</div>
 					<p className="font-mono text-xs uppercase tracking-[0.16em] text-fg-faint">
 						{SITE.thesis}
 					</p>

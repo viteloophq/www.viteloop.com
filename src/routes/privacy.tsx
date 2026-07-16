@@ -68,6 +68,19 @@ function PrivacyPage() {
 						protection terms consistent with this policy.
 					</p>
 
+					<h2>Cookies</h2>
+					<p>
+						We use strictly necessary storage to run the site — for example,
+						remembering your light or dark theme preference. With your consent,
+						we also use analytics cookies to understand how the site is used so
+						we can improve it. We do not use advertising cookies.
+					</p>
+					<p>
+						You choose your preference the first time you visit, and you can
+						change or withdraw it at any time using the “Cookie settings” link
+						in the footer.
+					</p>
+
 					<h2>Security</h2>
 					<p>
 						We apply industry-standard administrative, technical, and physical
