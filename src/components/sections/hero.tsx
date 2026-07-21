@@ -22,7 +22,7 @@ export function Hero() {
 			<GridBackdrop />
 			<Container className="relative grid items-center gap-12 py-20 md:py-28 lg:grid-cols-[1.06fr_0.94fr]">
 				<div className="relative z-10">
-					<div className="vl-rise inline-flex items-center gap-2.5 rounded-full border border-line bg-bg-soft/70 px-3.5 py-1.5">
+					<div className="inline-flex items-center gap-2.5 rounded-full border border-line bg-bg-soft/70 px-3.5 py-1.5">
 						<span className="relative flex h-2 w-2">
 							<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent/60" />
 							<span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
@@ -33,28 +33,15 @@ export function Hero() {
 					</div>
 
 					<h1 className="mt-7 text-balance font-display text-[2.7rem] font-extrabold leading-[1.02] tracking-tight text-fg sm:text-6xl md:text-[4.15rem]">
-						<span className="vl-rise block" style={{ animationDelay: "90ms" }}>
-							Power the Internet.
-						</span>
-						<span
-							className="vl-rise block text-accent"
-							style={{ animationDelay: "180ms" }}
-						>
-							On Your Terms.
-						</span>
+						<span className="block">Power the Internet.</span>
+						<span className="block text-accent">On Your Terms.</span>
 					</h1>
 
-					<p
-						className="vl-rise mt-6 max-w-xl text-lg leading-relaxed text-fg-muted"
-						style={{ animationDelay: "300ms" }}
-					>
+					<p className="mt-6 max-w-xl text-lg leading-relaxed text-fg-muted">
 						{SITE.description}
 					</p>
 
-					<div
-						className="vl-rise mt-9 flex flex-wrap items-center gap-3"
-						style={{ animationDelay: "400ms" }}
-					>
+					<div className="mt-9 flex flex-wrap items-center gap-3">
 						<Link to="/contact" className={buttonVariants({ size: "lg" })}>
 							Request Demo <ArrowRight className="h-4 w-4" />
 						</Link>
@@ -66,10 +53,7 @@ export function Hero() {
 						</Link>
 					</div>
 
-					<ul
-						className="vl-rise mt-9 flex flex-wrap items-center gap-x-3 gap-y-2"
-						style={{ animationDelay: "500ms" }}
-					>
+					<ul className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-2">
 						{CHIPS.map((c, i) => (
 							<li key={c} className="flex items-center gap-3">
 								{i > 0 && (
@@ -81,10 +65,7 @@ export function Hero() {
 					</ul>
 				</div>
 
-				<div
-					className="vl-scale-in relative z-10"
-					style={{ animationDelay: "160ms" }}
-				>
+				<div className="relative z-10">
 					<div className="frame rounded-2xl p-6 sm:p-8">
 						<CornerTicks />
 						<div className="mb-4 flex items-center justify-between">

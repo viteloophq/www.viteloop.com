@@ -17,6 +17,10 @@ import { SITE } from "#/data/site";
 import { cn } from "#/lib/utils";
 import appCss from "../styles.css?url";
 
+// Runs before first paint (see head().scripts). Must use the same localStorage
+// key as src/lib/theme.ts. Kept as a minified string since it's inlined verbatim.
+const THEME_INIT = `(function(){try{var t=localStorage.getItem("viteloop-theme");if(t!=="light"&&t!=="dark")t="light";document.documentElement.classList.add(t)}catch(e){document.documentElement.classList.add("light")}})();`;
+
 const ORG_JSONLD = {
 	"@context": "https://schema.org",
 	"@type": "Organization",
@@ -65,17 +69,27 @@ export const Route = createRootRoute({
 		],
 		links: [
 			{ rel: "stylesheet", href: appCss },
+			// Preload the above-the-fold font so the LCP heading swaps to Geist
+			// without an extra round-trip. Font fetches are CORS-mode, so
+			// crossOrigin is required even for this same-origin file.
+			{
+				rel: "preload",
+				href: "/fonts/Geist-Variable.woff2",
+				as: "font",
+				type: "font/woff2",
+				crossOrigin: "anonymous",
+			},
 			{ rel: "icon", href: "/icon.png", type: "image/png", sizes: "any" },
 			{ rel: "apple-touch-icon", href: "/icon.png" },
 			{ rel: "manifest", href: "/manifest.json" },
-			{ rel: "preconnect", href: "https://fonts.googleapis.com" },
-			{
-				rel: "preconnect",
-				href: "https://fonts.gstatic.com",
-				crossOrigin: "anonymous",
-			},
 		],
 		scripts: [
+			// Inlined theme bootstrap: sets the theme class on <html> before first
+			// paint to avoid a flash of the wrong theme, with no extra request.
+			// Keep the localStorage key in sync with src/lib/theme.ts.
+			{
+				children: THEME_INIT,
+			},
 			{ type: "application/ld+json", children: JSON.stringify(ORG_JSONLD) },
 			{ type: "application/ld+json", children: JSON.stringify(WEBSITE_JSONLD) },
 		],
@@ -88,8 +102,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head>
-				{/* Render-blocking: set theme before paint to avoid FOUC */}
-				<script src="/theme-init.js" />
 				<HeadContent />
 			</head>
 			<body className="flex min-h-screen flex-col">
@@ -98,15 +110,17 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<main className="flex-1">{children}</main>
 				<SiteFooter />
 				<CookieConsent />
-				<TanStackDevtools
-					config={{ position: "bottom-right" }}
-					plugins={[
-						{
-							name: "Tanstack Router",
-							render: <TanStackRouterDevtoolsPanel />,
-						},
-					]}
-				/>
+				{import.meta.env.DEV && (
+					<TanStackDevtools
+						config={{ position: "bottom-right" }}
+						plugins={[
+							{
+								name: "Tanstack Router",
+								render: <TanStackRouterDevtoolsPanel />,
+							},
+						]}
+					/>
+				)}
 				<Scripts />
 			</body>
 		</html>

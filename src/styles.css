@@ -1,7 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap');
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 @import 'tw-animate-css';
+
+/* Self-hosted Geist (variable woff2). Local files avoid the cross-origin
+   request chain to Google Fonts (HTML -> css -> fonts.googleapis -> gstatic)
+   that delayed FCP/LCP on slow connections. font-display: swap paints
+   fallback text immediately, then swaps to Geist once loaded. */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/Geist-Variable.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/GeistMono-Variable.woff2') format('woff2');
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -234,37 +252,6 @@ h1, h2, h3, .font-display {
   background:
     linear-gradient(165deg, var(--surface-strong), var(--surface));
   box-shadow: var(--shadow-sm);
-}
-
-/* ---- orchestrated page-load entrance ---- */
-@keyframes vl-rise {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.vl-rise {
-  opacity: 0;
-  animation: vl-rise 0.74s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes vl-scale-in {
-  from {
-    opacity: 0;
-    transform: translateY(24px) scale(0.985);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-.vl-scale-in {
-  opacity: 0;
-  animation: vl-scale-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* a thin sweeping accent line for section joints */
