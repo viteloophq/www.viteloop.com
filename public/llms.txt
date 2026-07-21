@@ -1,29 +1,29 @@
-# Viteloop
+# ViteLoop
 
-> Viteloop provides enterprise software for organizations building private CDN platforms, media infrastructure, edge networks, and cloud-native services — deployed in your own environment with complete ownership and control.
+> ViteLoop provides enterprise software for organizations building private CDN platforms, media infrastructure, edge networks, and cloud-native services — deployed in your own environment with complete ownership and control.
 
-Viteloop is infrastructure software, not infrastructure services. Every product shares one control plane, one API surface, and one deployment model, and runs on bare metal, any cloud, or on-premises — including air-gapped and sovereign environments. The platform is API-first and Kubernetes-native, with SSO, RBAC, and OpenTelemetry.
+ViteLoop is infrastructure software, not infrastructure services. Every product shares one control plane, one API surface, and one deployment model, and runs on bare metal, any cloud, or on-premises — including air-gapped and sovereign environments. The platform is API-first and Kubernetes-native, with SSO, RBAC, and OpenTelemetry.
 
 ## Products
 
-- [Viteloop CDN](https://www.viteloop.com/products/cdn): Global content delivery network — Anycast edge caching, HTTP/3, TLS, instant purge, and real-time analytics for video, software downloads, websites, and large files.
-- [Viteloop Stream](https://www.viteloop.com/products/stream): Complete VOD and low-latency live streaming software with adaptive bitrate, captions, and per-title analytics.
-- [Viteloop Transcoder](https://www.viteloop.com/products/transcoder): Distributed, AI-driven video transcoding across GPU and CPU pipelines (AV1, HEVC, H.264, VP9) with VMAF quality scoring.
-- [Viteloop DRM](https://www.viteloop.com/products/drm): Multi-DRM content protection and license management (Widevine, FairPlay, PlayReady) with a self-hosted license server and forensic watermarking.
-- [Viteloop OTT](https://www.viteloop.com/products/ott): Turnkey OTT streaming platform with web, mobile, and smart-TV apps, multi-DRM, and SVOD/TVOD/AVOD monetization.
-- [Viteloop LMS](https://www.viteloop.com/products/lms): Video-first learning platform with DRM-protected video, courses, assessments, and completion tracking (SCORM, xAPI, SSO).
+- [ViteLoop CDN](https://www.viteloop.com/products/cdn): Global content delivery network — Anycast edge caching, HTTP/3, TLS, instant purge, and real-time analytics for video, software downloads, websites, and large files.
+- [ViteLoop Stream](https://www.viteloop.com/products/stream): Complete VOD and low-latency live streaming software with adaptive bitrate, captions, and per-title analytics.
+- [ViteLoop Transcoder](https://www.viteloop.com/products/transcoder): Distributed, AI-driven video transcoding across GPU and CPU pipelines (AV1, HEVC, H.264, VP9) with VMAF quality scoring.
+- [ViteLoop DRM](https://www.viteloop.com/products/drm): Multi-DRM content protection and license management (Widevine, FairPlay, PlayReady) with a self-hosted license server and forensic watermarking.
+- [ViteLoop OTT](https://www.viteloop.com/products/ott): Turnkey OTT streaming platform with web, mobile, and smart-TV apps, multi-DRM, and SVOD/TVOD/AVOD monetization.
+- [ViteLoop LMS](https://www.viteloop.com/products/lms): Video-first learning platform with DRM-protected video, courses, assessments, and completion tracking (SCORM, xAPI, SSO).
 
 ## Platform
 
 - [Products overview](https://www.viteloop.com/products): The building blocks of your infrastructure — run the whole platform or a single component.
 - [Solutions](https://www.viteloop.com/solutions): Built for hosting providers, ISPs, telecoms, enterprises, governments, and streaming platforms.
 - [Developers](https://www.viteloop.com/developers): API-first platform with SDKs, a REST API, webhooks, and a CLI.
-- [Documentation](https://www.viteloop.com/docs): Guides, references, and API docs for deploying and operating Viteloop.
-- [Status](https://www.viteloop.com/status): Operational status of Viteloop's reference services.
+- [Documentation](https://www.viteloop.com/docs): Guides, references, and API docs for deploying and operating ViteLoop.
+- [Status](https://www.viteloop.com/status): Operational status of ViteLoop's reference services.
 
 ## Company
 
-- [Company](https://www.viteloop.com/company): About Viteloop.
+- [Company](https://www.viteloop.com/company): About ViteLoop.
 - [Careers](https://www.viteloop.com/careers): Open roles.
 - [Blog](https://www.viteloop.com/blog): News, updates, and engineering articles.
 - [Contact](https://www.viteloop.com/contact): Request a demo or talk to the team.
