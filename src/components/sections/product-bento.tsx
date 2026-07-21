@@ -8,11 +8,11 @@ import {
 	Section,
 	SectionHeading,
 } from "#/components/primitives/section";
-import { PRODUCTS, productLinkProps } from "#/data/products";
+import { HOME_PILLARS, pillarLinkProps } from "#/data/home";
 
 export function ProductBento() {
-	const featured = PRODUCTS[0];
-	const rest = PRODUCTS.slice(1);
+	const featured = HOME_PILLARS[0];
+	const rest = HOME_PILLARS.slice(1);
 	const FeaturedIcon = featured.icon;
 
 	return (
@@ -22,17 +22,18 @@ export function ProductBento() {
 				<div className="mt-5 max-w-2xl">
 					<SectionHeading>
 						One platform.{" "}
-						<span className="accent-gradient">Every layer of your stack.</span>
+						<span className="accent-gradient">Every edge workload.</span>
 					</SectionHeading>
 					<Lead>
-						Six composable products on one control plane, one API surface, and
-						one deployment model — run the whole stack or a single component.
+						CDN, video, live, DRM, commerce, and edge — one control plane, one
+						API. Run the whole platform or a single piece, managed or on your
+						own nodes.
 					</Lead>
 				</div>
 
 				<Reveal className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:auto-rows-fr">
 					<Link
-						{...productLinkProps(featured.slug)}
+						{...pillarLinkProps(featured.slug)}
 						className="card-hover group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-line bg-bg-soft/40 p-7 sm:col-span-2 lg:row-span-2"
 					>
 						<div className="blueprint-grid pointer-events-none absolute inset-0 opacity-70 [mask-image:radial-gradient(circle_at_82%_16%,black,transparent_74%)]" />
@@ -48,21 +49,11 @@ export function ProductBento() {
 								{featured.name}
 							</h3>
 							<p className="mt-2 max-w-md leading-relaxed text-fg-muted">
-								{featured.summary}
+								{featured.blurb}
 							</p>
-							<ul className="mt-5 flex flex-wrap gap-2">
-								{featured.features.slice(0, 4).map((f) => (
-									<li
-										key={f}
-										className="rounded-full border border-line bg-bg/70 px-3 py-1 font-mono text-xs text-fg-muted"
-									>
-										{f}
-									</li>
-								))}
-							</ul>
 						</div>
 						<span className="relative mt-8 inline-flex items-center gap-1 text-sm font-medium text-accent">
-							Explore {featured.short}
+							Explore {featured.name}
 							<ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
 						</span>
 					</Link>
@@ -72,7 +63,7 @@ export function ProductBento() {
 						return (
 							<Link
 								key={p.slug}
-								{...productLinkProps(p.slug)}
+								{...pillarLinkProps(p.slug)}
 								className="glass card-hover group flex flex-col rounded-2xl p-6"
 							>
 								<div className="flex items-center justify-between">
@@ -87,7 +78,7 @@ export function ProductBento() {
 									{p.name}
 								</h3>
 								<p className="mt-2 text-sm leading-relaxed text-fg-muted">
-									{p.tagline}
+									{p.blurb}
 								</p>
 								<span className="mt-auto inline-flex items-center gap-1 pt-5 text-sm font-medium text-accent">
 									Explore
