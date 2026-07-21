@@ -7,7 +7,7 @@ export function ScaleStrip() {
 		<section className="border-y border-line bg-bg-soft/30 py-10">
 			<Container>
 				<p className="mono-label text-center">Built to scale</p>
-				<div className="mt-7 grid grid-cols-2 gap-y-6 text-center sm:grid-cols-5 sm:gap-y-0">
+				<div className="mt-7 grid grid-cols-2 gap-y-6 text-center sm:grid-cols-4 sm:gap-y-0">
 					{HOME_STATS.map((stat, i) => (
 						<div
 							key={stat.label}

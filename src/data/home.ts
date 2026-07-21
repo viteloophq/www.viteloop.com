@@ -18,17 +18,16 @@ export const HOME_URLS = {
 /** One-command deploy snippet shown in "Run it your way". */
 export const DEPLOY_COMMAND = "viteloop nodes deploy --region auto"; // TODO(content): real CLI command
 
-/** Scale strip. Values are placeholders until real figures land — no invented numbers ship as fact. */
+/** Scale strip — real network figures. */
 export interface HomeStat {
 	label: string;
 	value: string;
 }
 export const HOME_STATS: HomeStat[] = [
-	{ label: "Edge locations", value: "—" }, // TODO(content)
-	{ label: "Regions", value: "—" }, // TODO(content)
-	{ label: "Capacity", value: "—" }, // TODO(content)
-	{ label: "Requests / sec", value: "—" }, // TODO(content)
-	{ label: "p50 latency", value: "—" }, // TODO(content)
+	{ label: "Edge locations", value: "119" },
+	{ label: "Requests per second", value: "1M+" },
+	{ label: "Network capacity", value: "250 Tbps+" },
+	{ label: "Avg. worldwide latency", value: "24 ms" },
 ];
 
 /** Pricing teaser. */
