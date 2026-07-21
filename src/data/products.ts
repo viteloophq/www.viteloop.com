@@ -33,7 +33,7 @@ export const PRODUCTS: Product[] = [
 	{
 		slug: "cdn",
 		short: "CDN",
-		name: "Viteloop CDN",
+		name: "ViteLoop CDN",
 		tagline: "Private CDN software for high-performance content delivery.",
 		summary:
 			"Run your own globally distributed content delivery network on infrastructure you own. Full cache control, programmable edge logic, and real-time analytics — without per-GB vendor pricing or shared tenancy.",
@@ -57,7 +57,7 @@ export const PRODUCTS: Product[] = [
 	{
 		slug: "stream",
 		short: "Stream",
-		name: "Viteloop Stream",
+		name: "ViteLoop Stream",
 		tagline: "Complete VOD and live streaming software.",
 		summary:
 			"A full video platform you operate yourself — ingest, package, and deliver VOD and low-latency live streams with adaptive bitrate, captions, and per-title analytics across your own delivery network.",
@@ -81,7 +81,7 @@ export const PRODUCTS: Product[] = [
 	{
 		slug: "transcoder",
 		short: "Transcoder",
-		name: "Viteloop Transcoder",
+		name: "ViteLoop Transcoder",
 		tagline: "Distributed video transcoding powered by AI.",
 		summary:
 			"A distributed transcoding engine that scales across your fleet. AI-driven per-title encoding maximizes quality per bit, while GPU and CPU pipelines keep large catalogs moving in parallel.",
@@ -105,7 +105,7 @@ export const PRODUCTS: Product[] = [
 	{
 		slug: "drm",
 		short: "DRM",
-		name: "Viteloop DRM",
+		name: "ViteLoop DRM",
 		tagline: "Content protection and license management.",
 		summary:
 			"Protect premium content with multi-DRM packaging and a license server you control. Issue, rotate, and revoke keys on your own terms with full audit trails and policy-based entitlements.",
@@ -129,10 +129,10 @@ export const PRODUCTS: Product[] = [
 	{
 		slug: "ott",
 		short: "OTT",
-		name: "Viteloop OTT",
+		name: "ViteLoop OTT",
 		tagline: "Turnkey OTT streaming platform.",
 		summary:
-			"Launch a branded OTT service end to end — VOD and live channels, multi-DRM, monetization, and apps for web, mobile, and TV — powered by Viteloop's streaming, transcoding, CDN, and billing stack.",
+			"Launch a branded OTT service end to end — VOD and live channels, multi-DRM, monetization, and apps for web, mobile, and TV — powered by ViteLoop's streaming, transcoding, CDN, and billing stack.",
 		icon: Tv,
 		accent: "data",
 		visual: "region",
@@ -153,7 +153,7 @@ export const PRODUCTS: Product[] = [
 	{
 		slug: "lms",
 		short: "LMS",
-		name: "Viteloop LMS",
+		name: "ViteLoop LMS",
 		tagline: "Video-first learning platform.",
 		summary:
 			"Operate a secure learning platform for training, education, or customer academies — DRM-protected video, courses and learning paths, assessments, and completion tracking, on infrastructure you own.",

@@ -14,7 +14,7 @@ export const Route = createFileRoute("/products/")({
 	component: ProductsPage,
 	head: () => ({
 		...seo({
-			title: "Products — Viteloop",
+			title: "Products — ViteLoop",
 			description:
 				"Composable infrastructure products — CDN, Stream, Transcoder, DRM, OTT, and LMS — that you deploy and own.",
 			path: "/products",
@@ -32,7 +32,7 @@ function ProductsPage() {
 	return (
 		<>
 			<PageHero
-				kicker="The Viteloop platform"
+				kicker="The ViteLoop platform"
 				title="The building blocks of your infrastructure."
 			>
 				Composable products that share one control plane, one API surface, and
@@ -73,7 +73,7 @@ function ProductsPage() {
 							The capabilities behind the platform.
 						</h2>
 						<p className="mt-4 text-lg leading-relaxed text-fg-muted">
-							Edge, security, and delivery features that power the Viteloop
+							Edge, security, and delivery features that power the ViteLoop
 							products — each available across the infrastructure you run.
 						</p>
 					</div>
@@ -105,7 +105,7 @@ function ProductsPage() {
 
 			<CTABand
 				heading="See the platform in your environment."
-				subtext="Request a technical walkthrough and we'll show you how Viteloop deploys into your stack."
+				subtext="Request a technical walkthrough and we'll show you how ViteLoop deploys into your stack."
 			/>
 		</>
 	);

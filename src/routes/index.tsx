@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
 	component: Home,
 	head: () =>
 		seo({
-			title: "Viteloop — Powering the Next Internet",
+			title: "ViteLoop — Powering the Next Internet",
 			description:
 				"Enterprise software for building private CDN platforms, media infrastructure, edge networks, and cloud-native services — deployed in your own environment.",
 			path: "/",

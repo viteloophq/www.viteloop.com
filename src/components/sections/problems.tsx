@@ -14,7 +14,7 @@ export function Problems() {
 						The problems with renting your infrastructure.
 					</SectionHeading>
 					<Lead>
-						Public clouds optimize for their margins, not your control. Viteloop
+						Public clouds optimize for their margins, not your control. ViteLoop
 						gives the ownership back.
 					</Lead>
 				</div>

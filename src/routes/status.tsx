@@ -10,8 +10,8 @@ export const Route = createFileRoute("/status")({
 	component: StatusPage,
 	head: () => ({
 		...seo({
-			title: "Status — Viteloop",
-			description: "Operational status of Viteloop systems and services.",
+			title: "Status — ViteLoop",
+			description: "Operational status of ViteLoop systems and services.",
 			path: "/status",
 		}),
 		scripts: [
@@ -78,7 +78,7 @@ function StatusPage() {
 	return (
 		<>
 			<PageHero kicker="Status" title="System status.">
-				Real-time operational status for Viteloop's reference services.
+				Real-time operational status for ViteLoop's reference services.
 				Customers running self-hosted deployments monitor their own instances.
 			</PageHero>
 

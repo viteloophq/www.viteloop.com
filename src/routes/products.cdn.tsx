@@ -35,7 +35,7 @@ export const Route = createFileRoute("/products/cdn")({
 	component: CdnPage,
 	head: () => {
 		const product = getProduct("cdn");
-		const title = "CDN — Global Content Delivery Network — Viteloop";
+		const title = "CDN — Global Content Delivery Network — ViteLoop";
 		const description =
 			"A managed, Anycast content delivery network for video, downloads, websites, and large files. Edge caching, HTTP/3, TLS, instant purge, and real-time analytics.";
 		return {
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/products/cdn")({
 					children: JSON.stringify({
 						"@context": "https://schema.org",
 						"@type": "Service",
-						name: product?.name ?? "Viteloop CDN",
+						name: product?.name ?? "ViteLoop CDN",
 						serviceType: "Content Delivery Network",
 						description,
 						provider: {

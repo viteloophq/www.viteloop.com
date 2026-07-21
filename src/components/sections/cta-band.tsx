@@ -13,7 +13,7 @@ interface CTABandProps {
 
 export function CTABand({
 	heading = "Build your own infrastructure.",
-	subtext = "Deploy Viteloop in your environment and take full ownership of your CDN, streaming, edge, and media platforms.",
+	subtext = "Deploy ViteLoop in your environment and take full ownership of your CDN, streaming, edge, and media platforms.",
 }: CTABandProps) {
 	return (
 		<section className="py-24 md:py-28">

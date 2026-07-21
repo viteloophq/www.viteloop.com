@@ -9,7 +9,7 @@ import { useState } from "react";
 import { cn } from "#/lib/utils";
 
 /**
- * An interactive e-commerce admin mockup for the Viteloop Commerce hero.
+ * An interactive e-commerce admin mockup for the ViteLoop Commerce hero.
  * Clicking a sidebar tab swaps the main panel between an overview dashboard,
  * orders, products, and analytics. Self-contained (no data/router) and
  * theme-aware via design tokens.

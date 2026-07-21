@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 /**
- * Content for the dedicated Viteloop OTT marketing page at /products/ott —
+ * Content for the dedicated ViteLoop OTT marketing page at /products/ott —
  * a turnkey, self-branded streaming platform. Positioned for media companies,
  * telcos, and content owners who want full control of their OTT service.
  */
@@ -31,15 +31,15 @@ export interface OttFaq {
 }
 
 export const OTT_SEO = {
-	title: "Viteloop OTT — Launch Your Own Branded Streaming Service | Viteloop",
+	title: "ViteLoop OTT — Launch Your Own Branded Streaming Service | ViteLoop",
 	description:
 		"Launch a branded OTT streaming service with multi-DRM, live TV and VOD, apps for every device, and flexible SVOD/TVOD/AVOD monetization — on infrastructure you own.",
 } as const;
 
 export const OTT_HERO = {
-	kicker: "Viteloop OTT",
+	kicker: "ViteLoop OTT",
 	title: "Your streaming service. Netflix-grade. On your terms.",
-	lead: "Viteloop OTT is a turnkey platform for launching a premium, fully branded streaming service — multi-DRM protection, live TV and VOD, native apps on every screen, and the monetization models you choose. Built for media companies, telcos, and content owners who'd rather own their platform than rent one.",
+	lead: "ViteLoop OTT is a turnkey platform for launching a premium, fully branded streaming service — multi-DRM protection, live TV and VOD, native apps on every screen, and the monetization models you choose. Built for media companies, telcos, and content owners who'd rather own their platform than rent one.",
 	badges: [
 		"Multi-DRM",
 		"Live & VOD",
@@ -107,8 +107,8 @@ export const OTT_AUDIENCE: OttAudience[] = [
 
 export const OTT_FAQ: OttFaq[] = [
 	{
-		q: "What is Viteloop OTT?",
-		a: "Viteloop OTT is a turnkey platform for launching a fully branded streaming service. It bundles DRM, live TV and VOD, multi-device apps, monetization, and analytics so you can go to market without assembling the stack yourself.",
+		q: "What is ViteLoop OTT?",
+		a: "ViteLoop OTT is a turnkey platform for launching a fully branded streaming service. It bundles DRM, live TV and VOD, multi-device apps, monetization, and analytics so you can go to market without assembling the stack yourself.",
 	},
 	{
 		q: "Which DRM and streaming formats are supported?",

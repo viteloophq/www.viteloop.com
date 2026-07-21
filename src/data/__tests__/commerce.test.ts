@@ -15,7 +15,7 @@ describe("commerce data", () => {
 	});
 
 	it("has an SEO title and a SERP-sized description", () => {
-		expect(COMMERCE_SEO.title).toContain("Viteloop");
+		expect(COMMERCE_SEO.title).toContain("ViteLoop");
 		expect(COMMERCE_SEO.description.length).toBeGreaterThanOrEqual(110);
 		expect(COMMERCE_SEO.description.length).toBeLessThanOrEqual(175);
 	});

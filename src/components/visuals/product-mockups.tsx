@@ -41,7 +41,7 @@ function Frame({
 
 export function StreamMockup({ className }: { className?: string }) {
 	return (
-		<Frame title="Viteloop Stream" className={className}>
+		<Frame title="ViteLoop Stream" className={className}>
 			<div className="relative grid aspect-video place-items-center overflow-hidden rounded-xl border border-line bg-gradient-to-br from-accent/25 via-bg-elev to-bg-soft">
 				<span className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-red-500/90 px-2 py-0.5 text-[0.65rem] font-semibold text-white">
 					<span className="h-1.5 w-1.5 rounded-full bg-white" /> LIVE
@@ -79,7 +79,7 @@ const DRM_SYSTEMS = ["Widevine", "FairPlay", "PlayReady"];
 
 export function DrmMockup({ className }: { className?: string }) {
 	return (
-		<Frame title="Viteloop DRM" className={className}>
+		<Frame title="ViteLoop DRM" className={className}>
 			<div className="flex items-center gap-3 rounded-xl border border-line bg-bg-elev p-3">
 				<span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-accent/10 text-accent">
 					<Lock className="h-5 w-5" strokeWidth={1.8} />
@@ -123,7 +123,7 @@ const TRANSCODE_JOBS = [
 
 export function TranscoderMockup({ className }: { className?: string }) {
 	return (
-		<Frame title="Viteloop Transcoder" className={className}>
+		<Frame title="ViteLoop Transcoder" className={className}>
 			<div className="space-y-2.5">
 				{TRANSCODE_JOBS.map((j) => (
 					<div key={j.name} className="rounded-xl border border-line p-3">
@@ -165,7 +165,7 @@ const LMS_LESSONS = [
 
 export function LmsMockup({ className }: { className?: string }) {
 	return (
-		<Frame title="Viteloop LMS" className={className}>
+		<Frame title="ViteLoop LMS" className={className}>
 			<div className="rounded-xl border border-line p-3">
 				<p className="text-sm font-medium text-fg">Edge Infrastructure 101</p>
 				<div className="mt-2 flex items-center gap-2">

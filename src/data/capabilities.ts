@@ -42,11 +42,11 @@ export const CAPABILITIES: Capability[] = [
 		name: "Anycast DNS",
 		tagline: "Authoritative DNS on a global anycast network.",
 		summary:
-			"Answer every DNS query from the network location closest to the user. Viteloop runs authoritative DNS across an anycast network with DNSSEC, health-checked failover, and latency- and geo-based routing — so resolution is fast, resilient, and under your control.",
+			"Answer every DNS query from the network location closest to the user. ViteLoop runs authoritative DNS across an anycast network with DNSSEC, health-checked failover, and latency- and geo-based routing — so resolution is fast, resilient, and under your control.",
 		icon: Network,
 		accent: "accent",
 		visual: "region",
-		seoTitle: "Anycast DNS — Fast, Resilient Authoritative DNS | Viteloop",
+		seoTitle: "Anycast DNS — Fast, Resilient Authoritative DNS | ViteLoop",
 		seoDescription:
 			"Authoritative Anycast DNS with DNSSEC, health-checked failover, and latency-based routing. Resolve queries from the nearest edge on infrastructure you own.",
 		features: [
@@ -72,7 +72,7 @@ export const CAPABILITIES: Capability[] = [
 				a: "Unicast DNS answers from one location, so distant users and outages both hurt. Anycast serves every user from the closest healthy node and reroutes automatically if a node fails, improving both speed and resilience.",
 			},
 			{
-				q: "Does Viteloop Anycast DNS support DNSSEC?",
+				q: "Does ViteLoop Anycast DNS support DNSSEC?",
 				a: "Yes. Zones can be signed with DNSSEC to protect against cache poisoning and spoofing, with key management handled through the API and dashboard.",
 			},
 			{
@@ -93,7 +93,7 @@ export const CAPABILITIES: Capability[] = [
 		icon: Waypoints,
 		accent: "data",
 		visual: "arch",
-		seoTitle: "Global Load Balancer — Multi-Region Traffic Steering | Viteloop",
+		seoTitle: "Global Load Balancer — Multi-Region Traffic Steering | ViteLoop",
 		seoDescription:
 			"A global load balancer with active health checks and automatic failover. Steer traffic by latency, geo, or weight across origins, regions, and clouds.",
 		features: [
@@ -136,11 +136,11 @@ export const CAPABILITIES: Capability[] = [
 		name: "Web Application Firewall (WAF)",
 		tagline: "Block application-layer attacks at the edge.",
 		summary:
-			"Filter malicious requests before they reach your origin. Viteloop's WAF runs managed OWASP rulesets and your own custom rules at the edge, with rate limiting, bot mitigation, and virtual patching — inspecting traffic close to users with negligible latency.",
+			"Filter malicious requests before they reach your origin. ViteLoop's WAF runs managed OWASP rulesets and your own custom rules at the edge, with rate limiting, bot mitigation, and virtual patching — inspecting traffic close to users with negligible latency.",
 		icon: ShieldCheck,
 		accent: "accent-3",
 		visual: "arch",
-		seoTitle: "Web Application Firewall (WAF) — Edge App Security | Viteloop",
+		seoTitle: "Web Application Firewall (WAF) — Edge App Security | ViteLoop",
 		seoDescription:
 			"An edge WAF with managed OWASP rules, custom rules, rate limiting, and bot mitigation. Block injection, XSS, and application-layer attacks before they hit origin.",
 		features: [
@@ -183,11 +183,11 @@ export const CAPABILITIES: Capability[] = [
 		name: "DDoS Protection",
 		tagline: "Absorb volumetric and application-layer attacks.",
 		summary:
-			"Keep services online through attacks of any size. Viteloop's anycast network disperses and absorbs volumetric floods across layers 3, 4, and 7, with always-on detection and automatic mitigation — no need to reroute traffic or wait for a scrubbing center.",
+			"Keep services online through attacks of any size. ViteLoop's anycast network disperses and absorbs volumetric floods across layers 3, 4, and 7, with always-on detection and automatic mitigation — no need to reroute traffic or wait for a scrubbing center.",
 		icon: ShieldAlert,
 		accent: "accent",
 		visual: "network",
-		seoTitle: "DDoS Protection — Always-On L3/L4/L7 Mitigation | Viteloop",
+		seoTitle: "DDoS Protection — Always-On L3/L4/L7 Mitigation | ViteLoop",
 		seoDescription:
 			"Always-on DDoS protection that absorbs volumetric and application-layer attacks across an anycast network. Automatic detection and mitigation with no traffic reroute.",
 		features: [
@@ -234,7 +234,7 @@ export const CAPABILITIES: Capability[] = [
 		icon: Cpu,
 		accent: "data",
 		visual: "network",
-		seoTitle: "Edge Compute — Serverless Functions at the Edge | Viteloop",
+		seoTitle: "Edge Compute — Serverless Functions at the Edge | ViteLoop",
 		seoDescription:
 			"Run serverless JavaScript and WebAssembly functions at the edge to transform requests, authenticate, and personalize content milliseconds from your users.",
 		features: [
@@ -282,7 +282,7 @@ export const CAPABILITIES: Capability[] = [
 		accent: "accent-3",
 		visual: "region",
 		seoTitle:
-			"Video CDN — Low-Rebuffer VOD & Live Streaming Delivery | Viteloop",
+			"Video CDN — Low-Rebuffer VOD & Live Streaming Delivery | ViteLoop",
 		seoDescription:
 			"A video CDN built for VOD and live streaming: edge-cached ABR segments, HLS/DASH/LL-HLS delivery, origin shielding, and token auth for millions of viewers.",
 		features: [
@@ -309,7 +309,7 @@ export const CAPABILITIES: Capability[] = [
 			},
 			{
 				q: "Can I protect video from unauthorized access?",
-				a: "Yes. Signed URLs and token authentication restrict access to authorized viewers, and it integrates with Viteloop DRM for encrypted, license-controlled playback.",
+				a: "Yes. Signed URLs and token authentication restrict access to authorized viewers, and it integrates with ViteLoop DRM for encrypted, license-controlled playback.",
 			},
 			{
 				q: "How does it handle large live audiences?",

@@ -18,9 +18,9 @@ export const Route = createFileRoute("/solutions")({
 	component: SolutionsPage,
 	head: () => ({
 		...seo({
-			title: "Solutions — Viteloop",
+			title: "Solutions — ViteLoop",
 			description:
-				"Viteloop powers hosting providers, ISPs, telecoms, enterprises, governments, streaming platforms, and more — software to build and own internet infrastructure.",
+				"ViteLoop powers hosting providers, ISPs, telecoms, enterprises, governments, streaming platforms, and more — software to build and own internet infrastructure.",
 			path: "/solutions",
 		}),
 		scripts: [
@@ -38,7 +38,7 @@ const VERTICALS = [
 		icon: Tv,
 		title: "OTT streaming",
 		blurb:
-			"Launch a branded VOD and live service with web, mobile, and TV apps, multi-DRM, and monetization — built on Viteloop Stream, CDN, and DRM.",
+			"Launch a branded VOD and live service with web, mobile, and TV apps, multi-DRM, and monetization — built on ViteLoop Stream, CDN, and DRM.",
 		points: [
 			"Web · Mobile · TV apps",
 			"Multi-DRM & watermarking",
@@ -62,7 +62,7 @@ function SolutionsPage() {
 				kicker="Solutions"
 				title="Built for the organizations that build the internet."
 			>
-				From hosting providers to governments, teams use Viteloop to launch and
+				From hosting providers to governments, teams use ViteLoop to launch and
 				operate the infrastructure their business depends on — without renting
 				it from someone else.
 			</PageHero>
@@ -130,7 +130,7 @@ function SolutionsPage() {
 						</SectionHeading>
 						<Lead>
 							Launch complete, fully branded products for your customers —
-							assembled from the Viteloop stack and owned end to end.
+							assembled from the ViteLoop stack and owned end to end.
 						</Lead>
 					</div>
 					<div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -175,7 +175,7 @@ function SolutionsPage() {
 
 			<CTABand
 				heading="Find the right fit for your platform."
-				subtext="Tell us what you're building and we'll map Viteloop to your architecture."
+				subtext="Tell us what you're building and we'll map ViteLoop to your architecture."
 			/>
 		</>
 	);

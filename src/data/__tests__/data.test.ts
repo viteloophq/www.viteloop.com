@@ -18,7 +18,7 @@ describe("data layer", () => {
 	});
 
 	it("getProduct resolves by slug", () => {
-		expect(getProduct("cdn")?.name).toBe("Viteloop CDN");
+		expect(getProduct("cdn")?.name).toBe("ViteLoop CDN");
 		expect(getProduct("nope")).toBeUndefined();
 	});
 

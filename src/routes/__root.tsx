@@ -46,13 +46,13 @@ export const Route = createRootRoute({
 			{ name: "viewport", content: "width=device-width, initial-scale=1" },
 			{ name: "theme-color", content: "#ffffff" },
 			{ name: "robots", content: "index, follow, max-image-preview:large" },
-			{ title: "Viteloop — Powering the Next Internet" },
+			{ title: "ViteLoop — Powering the Next Internet" },
 			{ name: "description", content: SITE.description },
 			{ property: "og:site_name", content: SITE.name },
 			{ property: "og:type", content: "website" },
 			{
 				property: "og:title",
-				content: "Viteloop — Powering the Next Internet",
+				content: "ViteLoop — Powering the Next Internet",
 			},
 			{ property: "og:description", content: SITE.description },
 			{ property: "og:image", content: `${SITE.url}/og.png` },
@@ -61,7 +61,7 @@ export const Route = createRootRoute({
 			{
 				property: "og:image:alt",
 				content:
-					"Viteloop — infrastructure software for private CDN, edge, and media platforms",
+					"ViteLoop — infrastructure software for private CDN, edge, and media platforms",
 			},
 			{ property: "og:locale", content: "en_US" },
 			{ name: "twitter:card", content: "summary_large_image" },

@@ -11,7 +11,7 @@ export function SiteFooter() {
 			<Container className="py-16">
 				<div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-[1.4fr_repeat(4,1fr)] lg:gap-12">
 					<div className="col-span-2 max-w-xs lg:col-span-1">
-						<Link to="/" aria-label="Viteloop home" className="inline-flex">
+						<Link to="/" aria-label="ViteLoop home" className="inline-flex">
 							<Logo />
 						</Link>
 						<p className="mt-4 text-sm leading-relaxed text-fg-muted">

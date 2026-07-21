@@ -16,7 +16,7 @@ describe("ott data", () => {
 	});
 
 	it("has an SEO title and a SERP-sized description", () => {
-		expect(OTT_SEO.title).toContain("Viteloop");
+		expect(OTT_SEO.title).toContain("ViteLoop");
 		expect(OTT_SEO.description.length).toBeGreaterThanOrEqual(110);
 		expect(OTT_SEO.description.length).toBeLessThanOrEqual(175);
 	});

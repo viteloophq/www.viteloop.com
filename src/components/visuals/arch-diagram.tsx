@@ -35,7 +35,7 @@ const LAYERS: Layer[] = [
 	},
 ];
 
-/** Layered stack showing how Viteloop composes inside the customer's environment. */
+/** Layered stack showing how ViteLoop composes inside the customer's environment. */
 export function ArchDiagram({ className }: { className?: string }) {
 	return (
 		<div className={cn("relative", className)} aria-hidden="false">

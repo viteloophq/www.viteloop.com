@@ -31,8 +31,8 @@ export const Route = createFileRoute("/products/$slug")({
 		const entry = getCatalogEntry(params.slug);
 		if (!entry) {
 			const base = seo({
-				title: "Product not found — Viteloop",
-				description: "The requested Viteloop product could not be found.",
+				title: "Product not found — ViteLoop",
+				description: "The requested ViteLoop product could not be found.",
 				path: `/products/${params.slug}`,
 			});
 			// Keep soft-404s out of the index.
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/products/$slug")({
 
 		const path = `/products/${entry.slug}`;
 		const capability = isCapability(entry) ? entry : null;
-		const title = capability ? capability.seoTitle : `${entry.name} — Viteloop`;
+		const title = capability ? capability.seoTitle : `${entry.name} — ViteLoop`;
 		const description = capability ? capability.seoDescription : entry.summary;
 
 		// Capabilities are platform features (schema.org Service); the six core

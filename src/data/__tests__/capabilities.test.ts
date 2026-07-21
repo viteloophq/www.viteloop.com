@@ -46,7 +46,7 @@ describe("capabilities", () => {
 	});
 
 	it("getCatalogEntry resolves both products and capabilities", () => {
-		expect(getCatalogEntry("cdn")?.name).toBe("Viteloop CDN");
+		expect(getCatalogEntry("cdn")?.name).toBe("ViteLoop CDN");
 		expect(getCatalogEntry("waf")?.name).toBe("Web Application Firewall (WAF)");
 		expect(getCatalogEntry("does-not-exist")).toBeUndefined();
 	});

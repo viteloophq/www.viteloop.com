@@ -39,7 +39,7 @@ export const Route = createFileRoute("/products/ott")({
 				children: JSON.stringify({
 					"@context": "https://schema.org",
 					"@type": "SoftwareApplication",
-					name: "Viteloop OTT",
+					name: "ViteLoop OTT",
 					applicationCategory: "MultimediaApplication",
 					operatingSystem: "iOS, Android, Android TV, Fire TV, Roku, Web",
 					description: OTT_SEO.description,
@@ -81,7 +81,7 @@ function OttPage() {
 			<FaqSection />
 			<CTABand
 				heading="Launch your streaming service."
-				subtext="Tell us about your content and audience — we'll show you Viteloop OTT running under your brand."
+				subtext="Tell us about your content and audience — we'll show you ViteLoop OTT running under your brand."
 			/>
 		</>
 	);

@@ -2,7 +2,7 @@ import { Play } from "lucide-react";
 import { cn } from "#/lib/utils";
 
 /**
- * A branded OTT streaming-app mockup for the Viteloop OTT hero — a stylized
+ * A branded OTT streaming-app mockup for the ViteLoop OTT hero — a stylized
  * storefront: featured hero tile with a play button, a rail of poster
  * thumbnails, and the product wordmark. Pure CSS/JSX, no external assets.
  */
@@ -17,7 +17,7 @@ export function OttMockup({ className }: { className?: string }) {
 			{/* window chrome */}
 			<div className="flex items-center justify-between">
 				<span className="font-display text-sm font-semibold text-fg">
-					Viteloop OTT
+					ViteLoop OTT
 				</span>
 				<span className="flex gap-1.5">
 					<span className="h-2.5 w-2.5 rounded-full bg-fg-faint/30" />

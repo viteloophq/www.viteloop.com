@@ -18,9 +18,9 @@ export const Route = createFileRoute("/company")({
 	component: CompanyPage,
 	head: () => ({
 		...seo({
-			title: "Company — Viteloop",
+			title: "Company — ViteLoop",
 			description:
-				"Viteloop builds the infrastructure software powering modern cloud platforms. We don't operate a public cloud — we help you operate yours.",
+				"ViteLoop builds the infrastructure software powering modern cloud platforms. We don't operate a public cloud — we help you operate yours.",
 			path: "/company",
 		}),
 		scripts: [
@@ -80,7 +80,7 @@ function CompanyPage() {
 	return (
 		<>
 			<PageHero kicker="Company" title="Powering the Next Internet.">
-				Viteloop builds the infrastructure software powering modern cloud
+				ViteLoop builds the infrastructure software powering modern cloud
 				platforms. We don't operate a public cloud — we build the software that
 				lets organizations create, manage, and scale their own.
 			</PageHero>
@@ -142,7 +142,7 @@ function CompanyPage() {
 
 			<CTABand
 				heading="Want to build with us?"
-				subtext="Whether you're deploying Viteloop or joining the team — we'd love to talk."
+				subtext="Whether you're deploying ViteLoop or joining the team — we'd love to talk."
 			/>
 		</>
 	);

@@ -10,25 +10,25 @@ import {
 describe("product mockups", () => {
 	it("StreamMockup renders its wordmark and quality ladder", () => {
 		render(<StreamMockup />);
-		screen.getByText("Viteloop Stream");
+		screen.getByText("ViteLoop Stream");
 		screen.getByText("1080p");
 	});
 
 	it("DrmMockup renders its wordmark and DRM systems", () => {
 		render(<DrmMockup />);
-		screen.getByText("Viteloop DRM");
+		screen.getByText("ViteLoop DRM");
 		screen.getByText("Widevine");
 	});
 
 	it("TranscoderMockup renders its wordmark and a codec", () => {
 		render(<TranscoderMockup />);
-		screen.getByText("Viteloop Transcoder");
+		screen.getByText("ViteLoop Transcoder");
 		screen.getByText("AV1");
 	});
 
 	it("LmsMockup renders its wordmark and a lesson", () => {
 		render(<LmsMockup />);
-		screen.getByText("Viteloop LMS");
+		screen.getByText("ViteLoop LMS");
 		screen.getByText("Introduction");
 	});
 });

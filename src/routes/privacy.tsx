@@ -6,9 +6,9 @@ export const Route = createFileRoute("/privacy")({
 	component: PrivacyPage,
 	head: () => ({
 		...seo({
-			title: "Privacy Policy — Viteloop",
+			title: "Privacy Policy — ViteLoop",
 			description:
-				"How Viteloop collects, uses, and protects information — and why your self-hosted deployments keep your data under your control.",
+				"How ViteLoop collects, uses, and protects information — and why your self-hosted deployments keep your data under your control.",
 			path: "/privacy",
 		}),
 		scripts: [
@@ -34,7 +34,7 @@ function PrivacyPage() {
 
 				<div className="prose mt-10">
 					<p>
-						Viteloop builds infrastructure software that our customers deploy
+						ViteLoop builds infrastructure software that our customers deploy
 						and operate in their own environments. This policy explains what
 						information we collect through our website and services, how we use
 						it, and the rights you have.
@@ -62,10 +62,10 @@ function PrivacyPage() {
 
 					<h2>Data ownership</h2>
 					<p>
-						Because Viteloop software runs in your environment, the data
+						Because ViteLoop software runs in your environment, the data
 						processed by your deployments stays under your control. We do not
 						have access to traffic, content, or end-user data flowing through
-						self-hosted Viteloop instances.
+						self-hosted ViteLoop instances.
 					</p>
 
 					<h2>Sub-processors</h2>

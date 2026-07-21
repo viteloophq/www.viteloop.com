@@ -10,9 +10,9 @@ export const Route = createFileRoute("/blog")({
 	component: BlogPage,
 	head: () => ({
 		...seo({
-			title: "Blog — Viteloop",
+			title: "Blog — ViteLoop",
 			description:
-				"Engineering deep-dives, product updates, and notes on building internet infrastructure from the Viteloop team.",
+				"Engineering deep-dives, product updates, and notes on building internet infrastructure from the ViteLoop team.",
 			path: "/blog",
 		}),
 		scripts: [
@@ -35,7 +35,7 @@ interface Post {
 const FEATURED: Post = {
 	title: "Designing a control plane that runs in someone else's cloud",
 	excerpt:
-		"Building infrastructure software means surrendering control of the environment. Here's how we designed Viteloop's control plane to be portable, observable, and safe across any deployment target.",
+		"Building infrastructure software means surrendering control of the environment. Here's how we designed ViteLoop's control plane to be portable, observable, and safe across any deployment target.",
 	tag: "Engineering",
 	date: "Jun 24, 2026",
 	readtime: "9 min read",
@@ -45,7 +45,7 @@ const POSTS: Post[] = [
 	{
 		title: "Per-title encoding with VMAF-guided AI",
 		excerpt:
-			"How Viteloop Transcoder cuts bitrate up to 40% without visible quality loss.",
+			"How ViteLoop Transcoder cuts bitrate up to 40% without visible quality loss.",
 		tag: "Product",
 		date: "Jun 12, 2026",
 		readtime: "6 min read",

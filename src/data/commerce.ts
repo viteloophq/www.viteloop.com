@@ -36,7 +36,7 @@ export interface CommerceFaq {
 }
 
 export const COMMERCE_SEO = {
-	title: "ViteLoop Commerce — AI-Powered E-commerce Platform | Viteloop",
+	title: "ViteLoop Commerce — AI-Powered E-commerce Platform | ViteLoop",
 	description:
 		"Build an online store with AI, sell across social channels, and stop fake orders — on enterprise infrastructure with a global CDN, auto scaling, and built-in security.",
 } as const;

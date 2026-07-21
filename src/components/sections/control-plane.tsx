@@ -24,7 +24,7 @@ export function ControlPlane() {
 						<span className="accent-gradient">your environment</span> — not ours.
 					</h2>
 					<p className="mt-5 max-w-xl text-lg leading-relaxed text-fg-muted">
-						Viteloop is infrastructure software, not infrastructure services.
+						ViteLoop is infrastructure software, not infrastructure services.
 						Every component ships as containers you deploy, observe, and own —
 						composing into a complete platform from the edge down to your cloud.
 					</p>

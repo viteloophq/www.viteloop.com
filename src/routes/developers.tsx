@@ -19,9 +19,9 @@ export const Route = createFileRoute("/developers")({
 	component: DevelopersPage,
 	head: () => ({
 		...seo({
-			title: "Developers — Viteloop",
+			title: "Developers — ViteLoop",
 			description:
-				"Viteloop is API-first: REST APIs, SDKs, a CLI, webhooks, and a Terraform provider for automating every part of your infrastructure.",
+				"ViteLoop is API-first: REST APIs, SDKs, a CLI, webhooks, and a Terraform provider for automating every part of your infrastructure.",
 			path: "/developers",
 		}),
 		scripts: [
@@ -70,9 +70,9 @@ curl -X POST https://cdn.your-org.net/v1/edge-rules \\
 	},
 	{
 		title: "stream.ts",
-		code: `import { Viteloop } from "@viteloop/sdk";
+		code: `import { ViteLoop } from "@viteloop/sdk";
 
-const vl = new Viteloop({ token: process.env.VL_TOKEN });
+const vl = new ViteLoop({ token: process.env.VL_TOKEN });
 
 const asset = await vl.stream.assets.create({
   source: "s3://ingest/keynote.mov",
@@ -99,14 +99,14 @@ console.log(asset.playbackUrl);`,
 const QUICKSTART = [
 	"Install the CLI and authenticate against your control plane.",
 	"Provision a zone, pipeline, or bucket via Terraform or the API.",
-	"Point your origin at Viteloop and ship — observe everything in real time.",
+	"Point your origin at ViteLoop and ship — observe everything in real time.",
 ];
 
 function DevelopersPage() {
 	return (
 		<>
 			<PageHero kicker="Developers" title="API-first. Built for engineers.">
-				Every capability in Viteloop is an API. Automate your infrastructure
+				Every capability in ViteLoop is an API. Automate your infrastructure
 				with SDKs, a CLI, webhooks, and a Terraform provider — no consoles
 				required.
 			</PageHero>

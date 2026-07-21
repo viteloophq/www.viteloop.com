@@ -20,9 +20,9 @@ export const Route = createFileRoute("/careers")({
 	component: CareersPage,
 	head: () => ({
 		...seo({
-			title: "Careers — Viteloop",
+			title: "Careers — ViteLoop",
 			description:
-				"Join Viteloop and build the software behind the next generation of internet infrastructure. Remote-first, engineering-led.",
+				"Join ViteLoop and build the software behind the next generation of internet infrastructure. Remote-first, engineering-led.",
 			path: "/careers",
 		}),
 		scripts: [

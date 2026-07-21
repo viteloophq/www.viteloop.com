@@ -22,7 +22,7 @@ export function DeployAnywhere() {
 						<span className="accent-gradient">Scale globally.</span>
 					</SectionHeading>
 					<Lead>
-						Run Viteloop on bare metal, any public cloud, or fully on-premise —
+						Run ViteLoop on bare metal, any public cloud, or fully on-premise —
 						including air-gapped and sovereign environments. One control plane
 						orchestrates every region you operate.
 					</Lead>

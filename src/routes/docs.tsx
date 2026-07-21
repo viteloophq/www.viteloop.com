@@ -7,9 +7,9 @@ export const Route = createFileRoute("/docs")({
 	component: DocsPage,
 	head: () => ({
 		...seo({
-			title: "Documentation — Viteloop",
+			title: "Documentation — ViteLoop",
 			description:
-				"Guides, references, and API docs for deploying and operating Viteloop infrastructure software.",
+				"Guides, references, and API docs for deploying and operating ViteLoop infrastructure software.",
 			path: "/docs",
 		}),
 		scripts: [
@@ -50,7 +50,7 @@ const QUICKSTART_CARDS = [
 	{
 		icon: Rocket,
 		title: "Quickstart",
-		blurb: "Deploy your first Viteloop component in under 15 minutes.",
+		blurb: "Deploy your first ViteLoop component in under 15 minutes.",
 	},
 	{
 		icon: Boxes,
@@ -80,7 +80,7 @@ function DocsPage() {
 				<Container className="py-12">
 					<p className="kicker">Documentation</p>
 					<h1 className="mt-4 text-3xl font-bold tracking-tight text-fg sm:text-4xl">
-						Everything you need to run Viteloop.
+						Everything you need to run ViteLoop.
 					</h1>
 					<div className="mt-6 flex max-w-xl items-center gap-3 rounded-xl border border-line bg-bg px-4 py-3 text-fg-muted">
 						<Search className="h-4 w-4 text-fg-faint" />
@@ -145,9 +145,9 @@ function DocsPage() {
 					</div>
 
 					<div className="prose mt-12">
-						<h2>Welcome to the Viteloop docs</h2>
+						<h2>Welcome to the ViteLoop docs</h2>
 						<p>
-							Viteloop is infrastructure software you deploy and operate in your
+							ViteLoop is infrastructure software you deploy and operate in your
 							own environment. These docs cover installation, architecture, and
 							the APIs behind every product — from the CDN data path to
 							multi-region orchestration.

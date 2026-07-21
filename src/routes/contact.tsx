@@ -14,9 +14,9 @@ export const Route = createFileRoute("/contact")({
 	component: ContactPage,
 	head: () => ({
 		...seo({
-			title: "Request a Demo — Viteloop",
+			title: "Request a Demo — ViteLoop",
 			description:
-				"Request a technical demo of Viteloop and talk to our engineering team about deploying infrastructure software in your environment.",
+				"Request a technical demo of ViteLoop and talk to our engineering team about deploying infrastructure software in your environment.",
 			path: "/contact",
 		}),
 		scripts: [
@@ -89,7 +89,7 @@ function ContactPage() {
 					Talk to our engineering team.
 				</h1>
 				<p className="mt-5 max-w-md text-lg leading-relaxed text-fg-muted">
-					Tell us what you're building. We'll show you how Viteloop deploys into
+					Tell us what you're building. We'll show you how ViteLoop deploys into
 					your environment and answer the technical questions that matter.
 				</p>
 				<ul className="mt-8 flex flex-col gap-3 text-sm text-fg-muted">

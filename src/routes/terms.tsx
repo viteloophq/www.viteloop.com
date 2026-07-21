@@ -6,9 +6,9 @@ export const Route = createFileRoute("/terms")({
 	component: TermsPage,
 	head: () => ({
 		...seo({
-			title: "Terms of Service — Viteloop",
+			title: "Terms of Service — ViteLoop",
 			description:
-				"The terms governing your access to and use of Viteloop's website, software, and related services.",
+				"The terms governing your access to and use of ViteLoop's website, software, and related services.",
 			path: "/terms",
 		}),
 		scripts: [
@@ -34,15 +34,15 @@ function TermsPage() {
 
 				<div className="prose mt-10">
 					<p>
-						These Terms of Service govern your access to and use of Viteloop's
+						These Terms of Service govern your access to and use of ViteLoop's
 						website, software, and related services. By using them, you agree to
 						these terms.
 					</p>
 
 					<h2>License</h2>
 					<p>
-						Subject to a valid agreement, Viteloop grants you a non-exclusive,
-						non-transferable license to deploy and use Viteloop software within
+						Subject to a valid agreement, ViteLoop grants you a non-exclusive,
+						non-transferable license to deploy and use ViteLoop software within
 						your organization. Specific entitlements are defined in your order
 						or subscription.
 					</p>
@@ -56,7 +56,7 @@ function TermsPage() {
 
 					<h2>Software & deployment</h2>
 					<p>
-						Viteloop provides infrastructure software, not infrastructure
+						ViteLoop provides infrastructure software, not infrastructure
 						services. You are responsible for the environments in which you
 						deploy the software, including provisioning, security configuration,
 						and operational management.
@@ -71,7 +71,7 @@ function TermsPage() {
 
 					<h2>Limitation of liability</h2>
 					<p>
-						To the maximum extent permitted by law, Viteloop will not be liable
+						To the maximum extent permitted by law, ViteLoop will not be liable
 						for indirect, incidental, or consequential damages arising from your
 						use of the software.
 					</p>

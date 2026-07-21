@@ -14,7 +14,7 @@ export function Benefits() {
 						Engineering principles, not feature checklists.
 					</SectionHeading>
 					<Lead>
-						Viteloop is built on a small set of opinions about how
+						ViteLoop is built on a small set of opinions about how
 						infrastructure software should behave when you own it.
 					</Lead>
 				</div>

@@ -70,7 +70,7 @@ export function SiteHeader() {
 			)}
 		>
 			<Container className="flex h-16 items-center gap-6">
-				<Link to="/" className="rounded-md" aria-label="Viteloop home">
+				<Link to="/" className="rounded-md" aria-label="ViteLoop home">
 					<Logo />
 				</Link>
 
