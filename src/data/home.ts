@@ -42,44 +42,58 @@ export const HOME_PRICING = {
 export interface HomePillar {
 	name: string;
 	blurb: string;
-	to: string;
+	/** Product slug; converted to typed router props via `pillarLinkProps`. */
+	slug: string;
 	icon: LucideIcon;
 }
 export const HOME_PILLARS: HomePillar[] = [
 	{
 		name: "CDN",
 		blurb: "Global content delivery on your network or ours.",
-		to: "/products/cdn",
+		slug: "cdn",
 		icon: Globe,
 	},
 	{
 		name: "Video",
 		blurb: "VOD & video CDN with low-rebuffer delivery.",
-		to: "/products/video-cdn",
+		slug: "video-cdn",
 		icon: PlayCircle,
 	},
 	{
 		name: "Live",
 		blurb: "Low-latency live streaming at scale.",
-		to: "/products/stream",
+		slug: "stream",
 		icon: Radio,
 	},
 	{
 		name: "DRM",
 		blurb: "Multi-DRM protection for every screen.",
-		to: "/products/drm",
+		slug: "drm",
 		icon: ShieldCheck,
 	},
 	{
 		name: "Commerce",
 		blurb: "AI-powered commerce at the edge.",
-		to: "/products/commerce",
+		slug: "commerce",
 		icon: ShoppingBag,
 	},
 	{
 		name: "Edge",
 		blurb: "Serverless functions and compute at the edge.",
-		to: "/products/edge-compute",
+		slug: "edge-compute",
 		icon: Cpu,
 	},
 ];
+
+/**
+ * Typed router link props for a pillar. `cdn` and `commerce` have dedicated
+ * static routes (`/products/cdn`, `/products/commerce`); every other pillar
+ * resolves through the shared `/products/$slug` template. Mirrors the intent
+ * of `productLinkProps` in `#/data/products` and avoids the router's
+ * "matched a different route" ambiguity for pages that have a dedicated route.
+ */
+export const pillarLinkProps = (slug: string) => {
+	if (slug === "cdn") return { to: "/products/cdn" } as const;
+	if (slug === "commerce") return { to: "/products/commerce" } as const;
+	return { to: "/products/$slug", params: { slug } } as const;
+};
