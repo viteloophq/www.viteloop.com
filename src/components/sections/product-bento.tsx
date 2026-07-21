@@ -3,11 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { CornerTicks, SectionTag } from "#/components/primitives/blueprint";
 import { Container } from "#/components/primitives/container";
 import { Reveal } from "#/components/primitives/reveal";
-import {
-	Lead,
-	Section,
-	SectionHeading,
-} from "#/components/primitives/section";
+import { Lead, Section, SectionHeading } from "#/components/primitives/section";
 import { HOME_PILLARS, pillarLinkProps } from "#/data/home";
 
 export function ProductBento() {
@@ -70,9 +66,7 @@ export function ProductBento() {
 									<span className="grid h-11 w-11 place-items-center rounded-xl border border-line bg-bg-soft text-accent">
 										<Icon className="h-5 w-5" strokeWidth={1.7} />
 									</span>
-									<span className="index-num">
-										{`P·0${i + 2}`}
-									</span>
+									<span className="index-num">{`P·0${i + 2}`}</span>
 								</div>
 								<h3 className="mt-5 font-display text-lg font-semibold text-fg">
 									{p.name}

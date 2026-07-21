@@ -37,9 +37,8 @@ export function Hero() {
 					</h1>
 
 					<p className="mt-6 max-w-xl text-lg leading-relaxed text-fg-muted">
-						Run ViteLoop's global network, or deploy your own CDN nodes and
-						own every packet — video, live, DRM, and commerce, delivered
-						worldwide.
+						Run ViteLoop's global network, or deploy your own CDN nodes and own
+						every packet — video, live, DRM, and commerce, delivered worldwide.
 					</p>
 
 					<div className="mt-9 flex flex-wrap items-center gap-3">
