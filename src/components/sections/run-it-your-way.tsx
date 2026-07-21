@@ -18,7 +18,7 @@ export function RunItYourWay() {
 				</Lead>
 
 				<div className="mt-12 grid gap-4 md:grid-cols-2">
-					<div className="glass card-hover rounded-2xl border border-line p-7">
+					<div className="glass card-hover min-w-0 rounded-2xl border border-line p-7">
 						<h3 className="font-display text-xl font-semibold text-fg">
 							Use our network
 						</h3>
@@ -36,7 +36,7 @@ export function RunItYourWay() {
 						</a>
 					</div>
 
-					<div className="glass card-hover rounded-2xl border border-line p-7">
+					<div className="glass card-hover min-w-0 rounded-2xl border border-line p-7">
 						<h3 className="font-display text-xl font-semibold text-fg">
 							Deploy your own nodes
 						</h3>
