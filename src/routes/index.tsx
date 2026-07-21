@@ -1,22 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Benefits } from "#/components/sections/benefits";
-import { ControlPlane } from "#/components/sections/control-plane";
 import { CTABand } from "#/components/sections/cta-band";
-import { DeployAnywhere } from "#/components/sections/deploy-anywhere";
 import { DeveloperTeaser } from "#/components/sections/developer-teaser";
 import { Hero } from "#/components/sections/hero";
-import { Problems } from "#/components/sections/problems";
+import { PricingTeaser } from "#/components/sections/pricing-teaser";
 import { ProductBento } from "#/components/sections/product-bento";
-import { TrustStrip } from "#/components/sections/trust-strip";
+import { RunItYourWay } from "#/components/sections/run-it-your-way";
+import { ScaleStrip } from "#/components/sections/scale-strip";
+import { WhyViteLoop } from "#/components/sections/why-viteloop";
+import { HOME_URLS } from "#/data/home";
 import { seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/")({
 	component: Home,
 	head: () =>
 		seo({
-			title: "ViteLoop — Powering the Next Internet",
+			title: "ViteLoop — Own the Edge",
 			description:
-				"Enterprise software for building private CDN platforms, media infrastructure, edge networks, and cloud-native services — deployed in your own environment.",
+				"The edge platform you can run yourself. CDN, video, live, DRM, and commerce — managed on ViteLoop's global network or deployed on your own nodes.",
 			path: "/",
 		}),
 });
@@ -25,14 +25,18 @@ function Home() {
 	return (
 		<>
 			<Hero />
-			<TrustStrip />
+			<ScaleStrip />
 			<ProductBento />
-			<Problems />
-			<ControlPlane />
-			<DeployAnywhere />
+			<RunItYourWay />
+			<WhyViteLoop />
 			<DeveloperTeaser />
-			<Benefits />
-			<CTABand />
+			<PricingTeaser />
+			<CTABand
+				heading="Own the edge."
+				subtext="Spin up on ViteLoop's network or deploy your own nodes — video, live, DRM, and commerce, your way."
+				primaryCta={{ label: "Start free", href: HOME_URLS.signup }}
+				secondaryCta={{ label: "Deploy a node", href: HOME_URLS.deploy }}
+			/>
 		</>
 	);
 }
